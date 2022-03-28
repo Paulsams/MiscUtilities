@@ -1,0 +1,10 @@
+{
+  "name": "com.paulsams.misc-utilities",
+  "version": "1.0.0",
+  "displayName": "MiscUtilities",
+  "description": "Different utility classes for my other packages to work with.",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.1",
+    "com.unity.mathematics": "1.2.5"
+  }
+}
