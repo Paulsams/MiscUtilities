@@ -1,8 +1,8 @@
 using System.Text;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtil.FromRuntimeCreateScript
 {
-    public static class StringBuilderExtensions
+    public static class ExtensionsFromRuntimeCreateScript
     {
         public static void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
         {
@@ -27,5 +27,7 @@ namespace Paulsams.MicsUtil
             for (int i = 0; i < tabIndex; ++i)
                 stringBuilder.Append("    ");
         }
+
+        public static string ClearSpaces(this string text) => text.Replace(" ", "");
     }
 }

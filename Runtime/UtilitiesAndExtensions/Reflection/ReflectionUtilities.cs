@@ -33,7 +33,7 @@ namespace Paulsams.MicsUtil
         public static ReadOnlyCollection<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) => GetAssignableTypesWhere(baseType,
             (type) => type.IsAbstract == false && type.IsInterface == false, GetAllTypesInCurrentDomain());
 
-        public static ReadOnlyCollection<Type> GetAssignableTypesWhere(Type baseType, Predicate<Type> predicate, IEnumerable<Type> types)
+        private static ReadOnlyCollection<Type> GetAssignableTypesWhere(Type baseType, Predicate<Type> predicate, IEnumerable<Type> types)
         {
             List<Type> assignableTypes = new List<Type>();
             foreach (var type in types)

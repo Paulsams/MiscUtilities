@@ -4,7 +4,7 @@ namespace Paulsams.MicsUtil
 {
     public static class DictionaryExtensions
     {
-        public static TKey KeyByValue<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TValue value)
+        public static TKey KeyByValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TValue value)
         {
             TKey needKey = default;
             foreach (var pair in dictionary)
