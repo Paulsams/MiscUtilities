@@ -7,9 +7,9 @@ namespace Paulsams.MicsUtil
 {
     public class MyProjectWindowUtility
     {
-        public static bool TryGetActiveFolderPathInApplication(out string path)
+        public static bool TryGetActiveFolderAbsolutePath(out string path)
         {
-            bool isFound = TryGetActiveFolderPath(out path);
+            bool isFound = TryGetActiveFolderRelativePath(out path);
             if (isFound == false)
                 return false;
 
@@ -18,7 +18,7 @@ namespace Paulsams.MicsUtil
             return true;
         }
 
-        public static bool TryGetActiveFolderPath(out string path)
+        public static bool TryGetActiveFolderRelativePath(out string path)
         {
             var tryGetActiveFolderPath = typeof(ProjectWindowUtil).GetMethod("TryGetActiveFolderPath", BindingFlags.Static | BindingFlags.NonPublic);
 
