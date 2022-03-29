@@ -84,6 +84,7 @@ ____
   
 9. ReflectionUtilities:
     + void CopyFieldsFromSourceToDestination(object source, object destination) - allows you to copy fields from completely different classes if they have the same Type and Name.
+	+ Type GetArrayOrListElementTypeOrThisType(Type type) - allows you to find out the type of an array or sheet element, or returns the same type.
     + IEnumerable\<Type> GetAllTypesInCurrentDomain() - allows you to get a collection of all types in the current domain.
     + ReadOnlyCollection\<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) - allows you to find out all Types that are inherited from a given Type and are not abstract or interfaces.
   

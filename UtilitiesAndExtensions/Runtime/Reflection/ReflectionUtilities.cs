@@ -28,6 +28,19 @@ namespace Paulsams.MicsUtil
             }
         }
 
+        public static Type GetArrayOrListElementTypeOrThisType(Type type)
+        {
+            Type returnType = type;
+            bool typeIsList = type.Name == "List`1" && type.Namespace == "System.Collections.Generic";
+
+            if (typeIsList)
+                returnType = type.GetGenericArguments()[0];
+            else if (type.IsArray)
+                returnType = type.GetElementType();
+
+            return returnType;
+        }
+
         public static IEnumerable<Type> GetAllTypesInCurrentDomain() => AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes());
 
         public static ReadOnlyCollection<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) => GetAssignableTypesWhere(baseType,
