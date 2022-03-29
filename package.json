@@ -8,5 +8,6 @@
     "com.unity.mathematics": "1.2.5"
   },
   "documentationUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/README.md",
-  "licensesUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/LICENSE"
+  "licensesUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/LICENSE",
+  "unity": "2019.2"
 }
