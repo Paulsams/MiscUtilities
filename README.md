@@ -6,7 +6,7 @@ Different utility classes for my other packages to work with.
 To add this package to the project, follow these steps:
 1) Open PackageManager;
 2) Select "Add package from get URL";
-3) insert this link `https://github.com/Paulsams/MiscUtilities.git#upm`
+3) insert this link `https://github.com/Paulsams/MiscUtilities.git`
 
 ## Additional tips:
 If you do not have a name conflict with my utilities, then you can make my namespace be added to the script automatically:
