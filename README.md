@@ -29,6 +29,16 @@ public class #SCRIPTNAME# : MonoBehaviour
 
 ____
 
+## Different Custom Editors:
+  
+1) GameObjectLayer is a structure that allows you to select a layer in the inspector without bit shift operators, that is, for comparison with GameObject.layer;
+  
+![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/GameObjectLayer.gif)
+
+2) ReadonlyField is an attribute so that you can see the value in the inspector, but not change it (but, as I understand it, it only works on non-custom types that do not have their own PropertyDrawer. And I think this because the custom PropertyDrawer redraws what ReadonlyAttribute called).
+  
+![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/ReadonlyAttribute.gif)
+
 ## Extensions and Utilities:
 
 ### Editor:
@@ -93,14 +103,4 @@ ____
     + void AppendOpeningBrace(this StringBuilder stringBuilder, ref int tabIndex)
     + void AppendBreakingBrace(this StringBuilder stringBuilder, ref int tabIndex, bool semicolon = false) - the "semilocon" argument is responsible for whether to put a semicolon after the breaking brace.
     + void AppendTabs(this StringBuilder stringBuilder, int tabIndex)
-    + string ClearSpaces(this string text) 
-
-## Other:
-  
-1) GameObjectLayer is a structure that allows you to select a layer in the inspector without bit shift operators, that is, for comparison with GameObject.layer;
-  
-![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/GameObjectLayer.gif)
-
-2) ReadonlyField is an attribute so that you can see the value in the inspector, but not change it (but, as I understand it, it only works on non-custom types that do not have their own PropertyDrawer. And I think this because the custom PropertyDrawer redraws what ReadonlyAttribute called).
-  
-![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/ReadonlyAttribute.gif)
+    + string ClearSpaces(this string text)
