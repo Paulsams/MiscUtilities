@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public struct OptimizedRect
     {

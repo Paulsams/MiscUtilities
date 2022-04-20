@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Reflection;
 using System.IO;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public class MyProjectWindowUtility
     {

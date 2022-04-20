@@ -1,6 +1,6 @@
 {
     "name": "Paulsams.MiscUtilities.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "Paulsams.MicsUtils",
     "references": [
         "GUID:ceda4d113c3779349b26462b36fd1123"
     ],

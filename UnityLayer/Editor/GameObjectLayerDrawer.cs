@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     [CustomPropertyDrawer(typeof(GameObjectLayer))]
     public class GameObjectLayerDrawer : PropertyDrawer

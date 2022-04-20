@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public static class DictionaryExtensions
     {

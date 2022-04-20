@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public static class PhysicsMyUtilities
     {

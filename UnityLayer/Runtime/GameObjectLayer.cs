@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     [System.Serializable]
     public struct GameObjectLayer

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public static class JsonSerializerUtility
     {

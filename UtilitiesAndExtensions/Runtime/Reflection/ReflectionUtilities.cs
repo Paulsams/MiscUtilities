@@ -4,26 +4,26 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public static class ReflectionUtilities
     {
         public static void CopyFieldsFromSourceToDestination(object source, object destination)
         {
-            if (source != null)
+            if (source == null || destination == null)
+                return;
+
+            var fieldsOldManagedReference = source.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+            var fieldsNewManagedReference = destination.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            for (int i = 0; i < fieldsNewManagedReference.Length; ++i)
             {
-                var fieldsOldManagedReference = source.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                var newField = fieldsNewManagedReference[i];
+                var fieldNeedCopy = fieldsOldManagedReference.FirstOrDefault((oldField) => oldField.FieldType == newField.FieldType && oldField.Name == newField.Name);
 
-                var fieldsNewManagedReference = destination.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-                for (int i = 0; i < fieldsNewManagedReference.Length; ++i)
+                if (fieldNeedCopy != default)
                 {
-                    var newField = fieldsNewManagedReference[i];
-                    var fieldNeedCopy = fieldsOldManagedReference.FirstOrDefault((oldField) => oldField.FieldType == newField.FieldType && oldField.Name == newField.Name);
-
-                    if (fieldNeedCopy != default)
-                    {
-                        newField.SetValue(destination, fieldNeedCopy.GetValue(source));
-                    }
+                    newField.SetValue(destination, fieldNeedCopy.GetValue(source));
                 }
             }
         }

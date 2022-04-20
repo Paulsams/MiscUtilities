@@ -1,4 +1,4 @@
-namespace Paulsams.MicsUtil
+namespace Paulsams.MicsUtils
 {
     public static class SerializedPropertyUtilities
     {

@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Paulsams.MicsUtil.FromRuntimeCreateScript
+namespace Paulsams.MicsUtils.FromRuntimeCreateScript
 {
     public static class ExtensionsFromRuntimeCreateScript
     {
