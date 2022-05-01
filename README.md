@@ -13,7 +13,7 @@ To add this package to the project, follow these steps:
     + RepairerSerializeReferences: https://github.com/Paulsams/RepairerSerializeReferences
     + SearchableAttribute: https://github.com/Paulsams/SearchableAttribute
 
-## Additional tips:
+## Additional tips
 If you do not have a name conflict with my utilities, then you can make my namespace be added to the script automatically:
 1) Create a folder "ScriptTemplates" in the root of the project;
 2) Create a file with the name: "81-C# Script-NewBehaviourScript.cs";
@@ -34,7 +34,7 @@ public class #SCRIPTNAME# : MonoBehaviour
 
 ____
 
-## Different Custom Editors:
+## Different Custom Editors
   
 1) GameObjectLayer is a structure that allows you to select a layer in the inspector without bit shift operators, that is, for comparison with GameObject.layer;
   
