@@ -9,7 +9,7 @@ To add this package to the project, follow these steps:
 
 ## Dependencies
 - Used by:
-    + ChoiceReferenceAttribute: https://github.com/Paulsams/ChoiceReferenceAttribute.git
+    + ChoiceReferenceAttribute: https://github.com/Paulsams/ChoiceReferenceAttribute
     + RepairerSerializeReferences: https://github.com/Paulsams/RepairerSerializeReferences
     + SearchableAttribute: https://github.com/Paulsams/SearchableAttribute
 
