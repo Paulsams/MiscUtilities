@@ -24,7 +24,7 @@ namespace Paulsams.MicsUtils
         private static T[] GetPublicStaticFields<T>(this Type type, bool checkForAssignableType, BindingFlags bindingFlags, Func<FieldInfo, bool> predicate, Func<FieldInfo, T> selector)
         {
             return type.GetFields(bindingFlags)
-                   .Where((field) => predicate(field) && (checkForAssignableType == false || type.IsAssignableFrom(field.FieldType))).Select(selector).ToArray();
+                   .Where((field) => predicate(field) && (checkForAssignableType == false || typeof(T).IsAssignableFrom(field.FieldType))).Select(selector).ToArray();
         }
     }
 }
