@@ -2,13 +2,18 @@
 Different utility classes for my other packages to work with.
 
 ## Add to project:
-
 To add this package to the project, follow these steps:
 1) Open PackageManager;
 2) Select "Add package from get URL";
 3) insert this link `https://github.com/Paulsams/MiscUtilities.git`
 
-## Additional tips:
+## Dependencies
+- Used by:
+    + ChoiceReferenceAttribute: https://github.com/Paulsams/ChoiceReferenceAttribute
+    + RepairerSerializeReferences: https://github.com/Paulsams/RepairerSerializeReferences
+    + SearchableAttribute: https://github.com/Paulsams/SearchableAttribute
+
+## Additional tips
 If you do not have a name conflict with my utilities, then you can make my namespace be added to the script automatically:
 1) Create a folder "ScriptTemplates" in the root of the project;
 2) Create a file with the name: "81-C# Script-NewBehaviourScript.cs";
@@ -29,7 +34,7 @@ public class #SCRIPTNAME# : MonoBehaviour
 
 ____
 
-## Different Custom Editors:
+## Different Custom Editors
   
 1) GameObjectLayer is a structure that allows you to select a layer in the inspector without bit shift operators, that is, for comparison with GameObject.layer;
   
@@ -38,6 +43,10 @@ ____
 2) ReadonlyField is an attribute so that you can see the value in the inspector, but not change it (but, as I understand it, it only works on non-custom types that do not have their own PropertyDrawer. And I think this because the custom PropertyDrawer redraws what ReadonlyAttribute called).
   
 ![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/ReadonlyAttribute.gif)
+
+3) IgnoreAttribute - allows you to ignore the field itself and immediately draw all child fields.
+
+![image](https://github.com/Paulsams/MiscUtilities/blob/master/Documentation~/IgnoreAttribute.png)
 
 ## Extensions and Utilities:
 
@@ -49,16 +58,22 @@ ____
     + bool TryGetActiveFolderPathInApplication(out string path) - allows you to get the absolute path to the currently open folder in the Project Window.
     + bool TryGetActiveFolderRelativePath(out string path) - allows you to get the relative path to the currently open folder in the Project Window.
   
-3. SerializedPropertyExtensions:
+3. AssetDatabaseUtilities:
+    + GetPathsToAllScenesInProject()
+    + GetPathToAllPrefabsAssets()
+
+4. SerializedPropertyExtensions:
     + object GetManagedReferenceValueFromPropertyPath(this SerializedProperty property) - allows you to get a managedReferenceValue that does not depend on the engine version.
-  
-    + object GetValueFromPropertyPath(this SerializedProperty property) - allows you to get an object through reflection on propertypath.
+    + object GetValueFromPropertyPath(this SerializedProperty property) - allows you to get an object through reflection on property path.
     + Type GetManagedReferenceFieldType(this SerializedProperty property) - allows you to get the Type of the object that currently lies in managedReferenceValue, that is, in an object with the [SerializeReference] attribute.
     + Type GetTypeObjectReference(this SerializedProperty property) - allows you to get the Type of field that is inherited from UnityEngine.Object.
     + IEnumerable\<SerializedProperty> GetChildrens(this SerializedProperty property) - allows you to get all the children from the current SerializedProperty.
 
-4. SerializedPropertyUtilities:
+5. SerializedPropertyUtilities:
     + int GetIndexFromArrayProperty(string dataArray) - allows you to get an index in the array for this type of string: "Array.data[xxx]".
+
+6. UnityObjectExtensions:
+    + int GetLocalIdentifierInFile(this Object unityObject) - allows you to get a unique identifier of the object that is stored in the deserialization of UnityEngine.Object.
 
 ### Runtime:
 1. MyCompare - script for comparing strings and numbers based on the enumeration responsible for comparing objects.
@@ -69,8 +84,10 @@ ____
 3. ListExtensions:
     + void Resize\<T>(this List<T> list, int needSize) - allows you to resize the list.
     + List\<T> Clone\<T>(this IList\<T> listToClone) where T : ICloneable - allows you to clone the list.
-    + T FindMinDistanceElement\<T>(this IList\<T> list, Vector3 position, Func\<Component, Component, bool> additionally = null) where T : Component - allows you to find the closest GameObject by distance.
-    + T FindMaxDistanceElement\<T>(this IReadOnlyList\<T> list, Vector3 position, Func\<Component, Component, bool> additionally = null) where T : Component - allows you to find the distant GameObject by distance.
+    + T FindMinDistanceElementOrDefault\<T>(this IList\<T> list, Vector3 position, Func\<T, T, bool> additionally = null) where T : Component - allows you to find the closest GameObject by distance or default(T).
+    + T FindMinDistanceElementOrDefault\<T>(this IList\<T> list, Func\<T, Vector3> getVector, Func\<T, T, bool> additionally = null)
+    + T FindMaxDistanceElement\<T>(this IReadOnlyList\<T> list, Vector3 position, Func\<T, T, bool> additionally = null) where T : Component - allows you to find the distant GameObject by distance.
+    + T FindMaxDistanceElementOrDefault\<T>(this IList\<T> list, Func\<T, Vector3> getVector, Func\<T, T, bool> additionally = null)
   
 4. JsonSerializerUtility - a class to simplify working with Newtonsoft JSON.
     + void Serialize\<T>(T serializedObject, string filePath, Formatting formatting = Formatting.Indented)
@@ -94,7 +111,7 @@ ____
   
 9. ReflectionUtilities:
     + void CopyFieldsFromSourceToDestination(object source, object destination) - allows you to copy fields from completely different classes if they have the same Type and Name.
-	+ Type GetArrayOrListElementTypeOrThisType(Type type) - allows you to find out the type of an array or sheet element, or returns the same type.
+    + Type GetArrayOrListElementTypeOrThisType(Type type) - allows you to find out the type of an array or sheet element, or returns the same type.
     + IEnumerable\<Type> GetAllTypesInCurrentDomain() - allows you to get a collection of all types in the current domain.
     + ReadOnlyCollection\<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) - allows you to find out all Types that are inherited from a given Type and are not abstract or interfaces.
   
