@@ -106,8 +106,8 @@ ____
     + void IgnoreCollision(IList\<Collider> collidersFirst, IList\<Collider> collidersSecond, bool state) - ignoring collisions between arrays.
   
 8. ReflectionExtensions:
-    + T[] GetPublicConstFields\<T>(this Type type, bool checkForAssignableType)
-    + T[] GetPublicStaticReadonlyFields\<T>(this Type type, bool checkForAssignableType)
+    + T[] GetPublicConstFields\<T>(this Type type, bool checkForAssignableType = false)
+    + T[] GetPublicStaticReadonlyFields\<T>(this Type type, bool checkForAssignableType = false)
   
 9. ReflectionUtilities:
     + void CopyFieldsFromSourceToDestination(object source, object destination) - allows you to copy fields from completely different classes if they have the same Type and Name.
