@@ -22,7 +22,7 @@ If you do not have a name conflict with my utilities, then you can make my names
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Paulsams.MicsUtil;
+using Paulsams.MicsUtils;
 
     #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
