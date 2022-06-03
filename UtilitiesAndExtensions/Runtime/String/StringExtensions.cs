@@ -11,7 +11,7 @@ namespace Paulsams.MicsUtils
         {
             StringBuilder stringBuilder = new StringBuilder(text);
             int indexOffset = 0;
-            for (int i = 0; i < text.Length; ++i)
+            for (int i = 1; i < text.Length; ++i)
             {
                 char currentCharacter = text[i];
                 if (currentCharacter.IsUpper())
