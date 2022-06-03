@@ -115,9 +115,15 @@ ____
     + IEnumerable\<Type> GetAllTypesInCurrentDomain() - allows you to get a collection of all types in the current domain.
     + ReadOnlyCollection\<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) - allows you to find out all Types that are inherited from a given Type and are not abstract or interfaces.
   
-10. ExtensionsFromRuntimeCreateScript - an extensions class for creating scripts in runtime. NOTE: I don't recommend using it at all, because it's more convenient to do it through templates, but sometimes it happens that it's more convenient through this method:
+10. CodeGeneration/ExtensionsFromRuntimeCreateScript - an extensions class for creating scripts in runtime. NOTE: I don't recommend using it at all, because it's more convenient to do it through templates, but sometimes it happens that it's more convenient through this method:
     + void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
     + void AppendOpeningBrace(this StringBuilder stringBuilder, ref int tabIndex)
     + void AppendBreakingBrace(this StringBuilder stringBuilder, ref int tabIndex, bool semicolon = false) - the "semilocon" argument is responsible for whether to put a semicolon after the breaking brace.
     + void AppendTabs(this StringBuilder stringBuilder, int tabIndex)
-    + string ClearSpaces(this string text)
+
+11. StringExtensions:
+	+ string SplitByUpperSymbols(this string text)
+	+ string ClearSpaces(this string text)
+	
+12. CharExtensions:
+	+ bool IsUpper(this char c)

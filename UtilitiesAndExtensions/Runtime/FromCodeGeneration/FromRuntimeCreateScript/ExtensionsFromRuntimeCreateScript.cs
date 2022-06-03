@@ -27,7 +27,5 @@ namespace Paulsams.MicsUtils.FromRuntimeCreateScript
             for (int i = 0; i < tabIndex; ++i)
                 stringBuilder.Append("    ");
         }
-
-        public static string ClearSpaces(this string text) => text.Replace(" ", "");
     }
 }
