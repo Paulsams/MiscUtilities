@@ -24,11 +24,11 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
         protected abstract string TextError { get; }
 
-        protected Dictionary<string, string> _properties;
+        protected Dictionary<string, string> _keysValues;
 
         protected BaseCreatorScriptFromTemplate(string scriptNamespace)
         {
-            _properties = new Dictionary<string, string>()
+            _keysValues = new Dictionary<string, string>()
             {
                 ["NamespaceBegin"] = $"namespace {scriptNamespace}\r\n{{",
                 ["NamespaceEnd"] = "}",
@@ -65,7 +65,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
                 {
                     if (baseScript[i] == '#')
                     {
-                        if (_properties.TryGetValue(word.ToString(), out string value))
+                        if (_keysValues.TryGetValue(word.ToString(), out string value))
                             script.Append(value);
 
                         word.Clear();
