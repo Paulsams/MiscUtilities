@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -37,9 +38,10 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
         public void Create()
         {
-            if (ValidCreate())
+            var fileCreateInfos = OnSetPropertiesAndGetFileCreateInfos();
+            if (fileCreateInfos.Any())
             {
-                foreach (var info in OnSetPropertiesAndGetFileCreateInfos())
+                foreach (var info in fileCreateInfos)
                 {
                     CreateFile(info);
                 }
@@ -50,7 +52,6 @@ namespace Paulsams.MicsUtils.CodeGeneration
             }
         }
 
-        protected abstract bool ValidCreate();
         protected abstract IEnumerable<FileCreateInfo> OnSetPropertiesAndGetFileCreateInfos();
 
         private void CreateFile(FileCreateInfo info)
