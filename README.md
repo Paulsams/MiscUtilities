@@ -51,28 +51,36 @@ ____
 ## Extensions and Utilities:
 
 ### Editor:
-1. MyEditorWindowUtility:
-    + T GetWindowWithoutShow\<T>() where T : EditorWindow - allows you to get a EditorWindow without showing it.	
-  
-2. MyProjectWindowUtility:
-    + bool TryGetActiveFolderPathInApplication(out string path) - allows you to get the absolute path to the currently open folder in the Project Window.
-    + bool TryGetActiveFolderRelativePath(out string path) - allows you to get the relative path to the currently open folder in the Project Window.
-  
-3. AssetDatabaseUtilities:
+1. AssetDatabaseUtilities:
     + GetPathsToAllScenesInProject()
     + GetPathToAllPrefabsAssets()
+	
+2. MyEditorWindowUtility:
+    + T GetWindowWithoutShow\<T>() where T : EditorWindow - allows you to get a EditorWindow without showing it.
+  
+3. MyProjectWindowUtility:
+    + bool TryGetActiveFolderPathInApplication(out string path) - allows you to get the absolute path to the currently open folder in the Project Window.
+    + bool TryGetActiveFolderRelativePath(out string path) - allows you to get the relative path to the currently open folder in the Project Window.
+	
+4. CodeGeneration->ExtensionsFromRuntimeCreateScript - an extensions class for creating scripts in runtime. NOTE: I do not recommend using it alone at all, but it is useful if you combine it with templates:
+    + void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
+    + void AppendOpeningBrace(this StringBuilder stringBuilder, ref int tabIndex)
+    + void AppendBreakingBrace(this StringBuilder stringBuilder, ref int tabIndex, bool semicolon = false) - the "semilocon" argument is responsible for whether to put a semicolon after the breaking brace.
+    + void AppendTabs(this StringBuilder stringBuilder, int tabIndex)
 
-4. SerializedPropertyExtensions:
+5. CodeGeneration->BaseCreatorFileFromTemplate: base class for easier code generation through templates.
+
+5. SerializedPropertyExtensions:
     + object GetManagedReferenceValueFromPropertyPath(this SerializedProperty property) - allows you to get a managedReferenceValue that does not depend on the engine version.
     + object GetValueFromPropertyPath(this SerializedProperty property) - allows you to get an object through reflection on property path.
     + Type GetManagedReferenceFieldType(this SerializedProperty property) - allows you to get the Type of the object that currently lies in managedReferenceValue, that is, in an object with the [SerializeReference] attribute.
     + Type GetTypeObjectReference(this SerializedProperty property) - allows you to get the Type of field that is inherited from UnityEngine.Object.
     + IEnumerable\<SerializedProperty> GetChildrens(this SerializedProperty property) - allows you to get all the children from the current SerializedProperty.
 
-5. SerializedPropertyUtilities:
+6. SerializedPropertyUtilities:
     + int GetIndexFromArrayProperty(string dataArray) - allows you to get an index in the array for this type of string: "Array.data[xxx]".
 
-6. UnityObjectExtensions:
+7. UnityObjectExtensions:
     + int GetLocalIdentifierInFile(this Object unityObject) - allows you to get a unique identifier of the object that is stored in the deserialization of UnityEngine.Object.
 
 ### Runtime:
@@ -114,16 +122,10 @@ ____
     + Type GetArrayOrListElementTypeOrThisType(Type type) - allows you to find out the type of an array or sheet element, or returns the same type.
     + IEnumerable\<Type> GetAllTypesInCurrentDomain() - allows you to get a collection of all types in the current domain.
     + ReadOnlyCollection\<Type> GetFinalAssignableTypesFromAllTypes(Type baseType) - allows you to find out all Types that are inherited from a given Type and are not abstract or interfaces.
-  
-10. CodeGeneration/ExtensionsFromRuntimeCreateScript - an extensions class for creating scripts in runtime. NOTE: I don't recommend using it at all, because it's more convenient to do it through templates, but sometimes it happens that it's more convenient through this method:
-    + void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
-    + void AppendOpeningBrace(this StringBuilder stringBuilder, ref int tabIndex)
-    + void AppendBreakingBrace(this StringBuilder stringBuilder, ref int tabIndex, bool semicolon = false) - the "semilocon" argument is responsible for whether to put a semicolon after the breaking brace.
-    + void AppendTabs(this StringBuilder stringBuilder, int tabIndex)
 
-11. StringExtensions:
+10. StringExtensions:
 	+ string SplitByUpperSymbols(this string text)
 	+ string ClearSpaces(this string text)
 	
-12. CharExtensions:
+11. CharExtensions:
 	+ bool IsUpper(this char c)

@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using UnityEditor;
 
-namespace Paulsams.MicsUtils
+namespace Paulsams.MicsUtils.CodeGeneration
 {
     public abstract class BaseCreatorScriptFromTemplate
     {

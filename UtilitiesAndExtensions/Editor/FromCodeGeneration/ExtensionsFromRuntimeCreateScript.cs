@@ -1,8 +1,8 @@
 using System.Text;
 
-namespace Paulsams.MicsUtils.FromRuntimeCreateScript
+namespace Paulsams.MicsUtils.CodeGeneration
 {
-    public static class ExtensionsFromRuntimeCreateScript
+    public static class ExtensionsFromCodeGeneration
     {
         public static void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
         {
