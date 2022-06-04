@@ -26,14 +26,6 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
         protected Dictionary<string, string> _properties;
 
-        protected string this[string key]
-        {
-            set
-            {
-                _properties[key] = value;
-            }
-        }
-
         protected BaseCreatorScriptFromTemplate(string scriptNamespace)
         {
             _properties = new Dictionary<string, string>()
