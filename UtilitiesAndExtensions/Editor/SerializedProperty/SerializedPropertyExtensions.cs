@@ -19,7 +19,7 @@ namespace Paulsams.MicsUtils
             return managedReferenceValue;
         }
 
-        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).Item1;
+        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).Item2;
 
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
