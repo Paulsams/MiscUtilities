@@ -73,6 +73,7 @@ ____
 5. SerializedPropertyExtensions:
     + object GetManagedReferenceValueFromPropertyPath(this SerializedProperty property) - allows you to get a managedReferenceValue that does not depend on the engine version.
     + object GetValueFromPropertyPath(this SerializedProperty property) - allows you to get an object through reflection on property path.
+	+ void SetValueFromPropertyPath(this SerializedProperty property, object value)
     + Type GetManagedReferenceFieldType(this SerializedProperty property) - allows you to get the Type of the object that currently lies in managedReferenceValue, that is, in an object with the [SerializeReference] attribute.
     + Type GetTypeObjectReference(this SerializedProperty property) - allows you to get the Type of field that is inherited from UnityEngine.Object.
     + IEnumerable\<SerializedProperty> GetChildrens(this SerializedProperty property) - allows you to get all the children from the current SerializedProperty.

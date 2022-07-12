@@ -19,15 +19,24 @@ namespace Paulsams.MicsUtils
             return managedReferenceValue;
         }
 
-        public static object GetValueFromPropertyPath(this SerializedProperty property)
+        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).Item1;
+
+        public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
-            object GetValueForField(object current, string nameField) =>
-                current.GetType().GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(current);
+            var fieldData = GetFieldInfoFromPropertyPath(property);
+            fieldData.Item1.SetValue(fieldData.Item2, value);
+        }
+
+        private static (FieldInfo, object) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+        {
+            FieldInfo GetFieldInfoForField(object current, string nameField) =>
+                current.GetType().GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
             property.serializedObject.ApplyModifiedProperties();
 
             var namesProperty = property.propertyPath.Split('.');
             object currentObject = property.serializedObject.targetObject;
+            FieldInfo fieldInfo = null;
             for (int i = 0; i < namesProperty.Length; ++i)
             {
                 //Method "Split" split the string "Array.data[xxx]", so I do i + 1.
@@ -47,9 +56,10 @@ namespace Paulsams.MicsUtils
                     continue;
                 }
 
-                currentObject = GetValueForField(currentObject, namesProperty[i]);
+                fieldInfo = GetFieldInfoForField(currentObject, namesProperty[i]);
+                currentObject = fieldInfo.GetValue(currentObject);
             }
-            return currentObject;
+            return (fieldInfo, currentObject);
         }
 
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
