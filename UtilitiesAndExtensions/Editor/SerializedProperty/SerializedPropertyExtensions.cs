@@ -19,15 +19,15 @@ namespace Paulsams.MicsUtils
             return managedReferenceValue;
         }
 
-        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).Item2;
+        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).currentObject;
 
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
             var fieldData = GetFieldInfoFromPropertyPath(property);
-            fieldData.Item1.SetValue(fieldData.Item2, value);
+            fieldData.field.SetValue(fieldData.parentObject, value);
         }
 
-        private static (FieldInfo, object) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+        private static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
         {
             FieldInfo GetFieldInfoForField(object current, string nameField) =>
                 current.GetType().GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -36,6 +36,7 @@ namespace Paulsams.MicsUtils
 
             var namesProperty = property.propertyPath.Split('.');
             object currentObject = property.serializedObject.targetObject;
+            object parentObject = null;
             FieldInfo fieldInfo = null;
             for (int i = 0; i < namesProperty.Length; ++i)
             {
@@ -57,9 +58,10 @@ namespace Paulsams.MicsUtils
                 }
 
                 fieldInfo = GetFieldInfoForField(currentObject, namesProperty[i]);
+                parentObject = currentObject;
                 currentObject = fieldInfo.GetValue(currentObject);
             }
-            return (fieldInfo, currentObject);
+            return (fieldInfo, parentObject, currentObject);
         }
 
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
