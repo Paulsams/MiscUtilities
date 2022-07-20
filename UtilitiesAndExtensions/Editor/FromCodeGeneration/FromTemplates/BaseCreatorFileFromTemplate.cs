@@ -75,13 +75,21 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
                                 int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
                                 var linesInValue = value.Split(Environment.NewLine);
-                                script.AppendLine(linesInValue[0]);
-                                for (int j = 1; j < linesInValue.Length - 1; ++j)
+                                if (linesInValue.Length == 1)
                                 {
-                                    script.AppendLine(linesInValue[j], tabIndex);
+                                    script.Append(linesInValue[0]);
                                 }
-                                if (linesInValue.Length > 1)
+                                else
+                                {
+                                    script.AppendLine(linesInValue[0]);
+
+                                    for (int j = 1; j < linesInValue.Length - 1; ++j)
+                                    {
+                                        script.AppendLine(linesInValue[j], tabIndex);
+                                    }
+
                                     script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
+                                }
                             }
 
                             word.Clear();
