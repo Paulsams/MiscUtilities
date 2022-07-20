@@ -10,6 +10,52 @@ namespace Paulsams.MicsUtils.CodeGeneration
 {
     public abstract class BaseCreatorScriptFromTemplate
     {
+        protected class InsertWord
+        {
+            public readonly StringBuilder Builder;
+            private int _tabIndex;
+
+            public InsertWord()
+            {
+                Builder = new StringBuilder();
+            }
+
+            public InsertWord(int capacity)
+            {
+                Builder = new StringBuilder(capacity);
+            }
+
+            public void AppendLine(string text)
+            {
+                Builder.AppendLine(text, _tabIndex);
+            }
+
+            public void Append(string text)
+            {
+                Builder.Append(text);
+            }
+
+            public void AppendWithTabs(string text)
+            {
+                Builder.Append(text, _tabIndex);
+            }
+
+            public void AppendTabs()
+            {
+                Builder.AppendTabs(_tabIndex);
+            }
+
+            public void AppendOpeningBrace()
+            {
+                Builder.AppendOpeningBrace(ref _tabIndex);
+            }
+
+            public void AppendBreakingBrace(bool semicolon = false)
+            {
+                Builder.AppendBreakingBrace(ref _tabIndex, semicolon);
+            }
+        }
+
         public struct FileCreateInfo
         {
             public readonly string TemplateScript;
