@@ -54,6 +54,11 @@ namespace Paulsams.MicsUtils.CodeGeneration
             {
                 Builder.AppendBreakingBrace(ref _tabIndex, semicolon);
             }
+
+            public override string ToString()
+            {
+                return Builder.ToString();
+            }
         }
 
         public struct FileCreateInfo
