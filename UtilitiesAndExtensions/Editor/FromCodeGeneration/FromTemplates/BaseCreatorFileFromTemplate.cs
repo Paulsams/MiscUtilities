@@ -32,7 +32,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
         {
             _keysValues = new Dictionary<string, string>()
             {
-                ["NamespaceBegin"] = $"namespace {scriptNamespace}\r\n{{",
+                ["NamespaceBegin"] = $"namespace {scriptNamespace}{Environment.NewLine}{{",
                 ["NamespaceEnd"] = "}",
             };
         }
@@ -40,17 +40,15 @@ namespace Paulsams.MicsUtils.CodeGeneration
         public void Create()
         {
             var fileCreateInfos = OnSetPropertiesAndGetFileCreateInfos();
-            if (fileCreateInfos.Any())
+            bool isAnyFile = false;
+            foreach (var info in fileCreateInfos)
             {
-                foreach (var info in fileCreateInfos)
-                {
-                    CreateFile(info);
-                }
+                isAnyFile = true;
+                CreateFile(info);
             }
-            else
-            {
+
+            if (isAnyFile == false)
                 Debug.LogError(TextError);
-            }
         }
 
         protected abstract IEnumerable<FileCreateInfo> OnSetPropertiesAndGetFileCreateInfos();
