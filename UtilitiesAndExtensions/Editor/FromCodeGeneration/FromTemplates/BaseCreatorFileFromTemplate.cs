@@ -72,7 +72,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
                         {
                             if (_keysValues.TryGetValue(word.ToString(), out string value))
                             {
-                                if (value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
+                                if (value.Length >= Environment.NewLine.Length && value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
                                     value = value.Remove(value.Length - Environment.NewLine.Length);
 
                                 int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
