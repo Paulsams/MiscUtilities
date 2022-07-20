@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -59,33 +60,49 @@ namespace Paulsams.MicsUtils.CodeGeneration
             var baseScript = info.TemplateScript;
             StringBuilder script = new StringBuilder((int)(baseScript.Length * 1.5f));
             bool isWord = false;
+            var linesInBaseScript = baseScript.Split(Environment.NewLine);
             StringBuilder word = new StringBuilder();
-            for (int i = 0; i < baseScript.Length; ++i)
+            foreach (var lineInBaseScript in linesInBaseScript)
             {
-                if (isWord)
+                foreach (char charInBaseScript in lineInBaseScript)
                 {
-                    if (baseScript[i] == '#')
+                    if (isWord)
                     {
-                        if (_keysValues.TryGetValue(word.ToString(), out string value))
-                            script.Append(value);
+                        if (charInBaseScript == '#')
+                        {
+                            if (_keysValues.TryGetValue(word.ToString(), out string value))
+                            {
+                                if (value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
+                                    value = value.Remove(value.Length - Environment.NewLine.Length);
 
-                        word.Clear();
-                        isWord = false;
-                        continue;
+                                int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
+                                var linesInValue = value.Split(Environment.NewLine);
+                                for (int j = 0; j < linesInValue.Length - 1; ++j)
+                                {
+                                    script.AppendLine(linesInValue[j], tabIndex);
+                                }
+                                script.Append(linesInValue[linesInValue.Length - 1]);
+                            }
+
+                            word.Clear();
+                            isWord = false;
+                            continue;
+                        }
+
+                        word.Append(charInBaseScript);
                     }
-
-                    word.Append(baseScript[i]);
-                }
-                else
-                {
-                    if (baseScript[i] == '#')
+                    else
                     {
-                        isWord = true;
-                        continue;
-                    }
+                        if (charInBaseScript == '#')
+                        {
+                            isWord = true;
+                            continue;
+                        }
 
-                    script.Append(baseScript[i]);
+                        script.Append(charInBaseScript);
+                    }
                 }
+
             }
 
             var absolutePathToFolder = info.AbsolutePathToFolder;
