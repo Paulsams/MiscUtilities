@@ -100,7 +100,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
                         script.Append(charInBaseScript);
                     }
                 }
-
+                script.AppendLine();
             }
 
             var absolutePathToFolder = info.AbsolutePathToFolder;
