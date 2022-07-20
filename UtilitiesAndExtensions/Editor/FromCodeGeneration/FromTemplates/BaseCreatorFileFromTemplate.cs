@@ -57,61 +57,17 @@ namespace Paulsams.MicsUtils.CodeGeneration
         {
             var baseScript = info.TemplateScript;
             StringBuilder script = new StringBuilder((int)(baseScript.Length * 1.5f));
-            bool isWord = false;
             var linesInBaseScript = baseScript.Split(Environment.NewLine);
             StringBuilder word = new StringBuilder();
-            foreach (var lineInBaseScript in linesInBaseScript)
+            for (int i = 0; i < linesInBaseScript.Length - 1; i++)
             {
-                foreach (char charInBaseScript in lineInBaseScript)
-                {
-                    if (isWord)
-                    {
-                        if (charInBaseScript == '#')
-                        {
-                            if (_keysValues.TryGetValue(word.ToString(), out string value))
-                            {
-                                if (value.Length >= Environment.NewLine.Length && value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
-                                    value = value.Remove(value.Length - Environment.NewLine.Length);
+                string lineInBaseScript = linesInBaseScript[i];
+                IteratorInLine(script, word, lineInBaseScript);
 
-                                int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
-                                var linesInValue = value.Split(Environment.NewLine);
-                                if (linesInValue.Length == 1)
-                                {
-                                    script.Append(linesInValue[0]);
-                                }
-                                else
-                                {
-                                    script.AppendLine(linesInValue[0]);
-
-                                    for (int j = 1; j < linesInValue.Length - 1; ++j)
-                                    {
-                                        script.AppendLine(linesInValue[j], tabIndex);
-                                    }
-
-                                    script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
-                                }
-                            }
-
-                            word.Clear();
-                            isWord = false;
-                            continue;
-                        }
-
-                        word.Append(charInBaseScript);
-                    }
-                    else
-                    {
-                        if (charInBaseScript == '#')
-                        {
-                            isWord = true;
-                            continue;
-                        }
-
-                        script.Append(charInBaseScript);
-                    }
-                }
                 script.AppendLine();
             }
+
+            IteratorInLine(script, word, linesInBaseScript[linesInBaseScript.Length - 1]);
 
             var absolutePathToFolder = info.AbsolutePathToFolder;
             if (Directory.Exists(absolutePathToFolder) == false)
@@ -119,6 +75,59 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
             File.WriteAllText($"{absolutePathToFolder}/{info.FileName}.cs", script.ToString());
             AssetDatabase.Refresh();
+        }
+
+        private void IteratorInLine(StringBuilder script, StringBuilder word, string lineInBaseScript)
+        {
+            bool isWord = false;
+            foreach (char charInBaseScript in lineInBaseScript)
+            {
+                if (isWord)
+                {
+                    if (charInBaseScript == '#')
+                    {
+                        if (_keysValues.TryGetValue(word.ToString(), out string value))
+                        {
+                            if (value.Length >= Environment.NewLine.Length && value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
+                                value = value.Remove(value.Length - Environment.NewLine.Length);
+
+                            int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
+                            var linesInValue = value.Split(Environment.NewLine);
+                            if (linesInValue.Length == 1)
+                            {
+                                script.Append(linesInValue[0]);
+                            }
+                            else
+                            {
+                                script.AppendLine(linesInValue[0]);
+
+                                for (int j = 1; j < linesInValue.Length - 1; ++j)
+                                {
+                                    script.AppendLine(linesInValue[j], tabIndex);
+                                }
+
+                                script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
+                            }
+                        }
+
+                        word.Clear();
+                        isWord = false;
+                        continue;
+                    }
+
+                    word.Append(charInBaseScript);
+                }
+                else
+                {
+                    if (charInBaseScript == '#')
+                    {
+                        isWord = true;
+                        continue;
+                    }
+
+                    script.Append(charInBaseScript);
+                }
+            }
         }
     }
 }
