@@ -4,6 +4,12 @@ namespace Paulsams.MicsUtils.CodeGeneration
 {
     public static class ExtensionsFromCodeGeneration
     {
+        public static void Append(this StringBuilder stringBuilder, string text, int tabIndex)
+        {
+            AppendTabs(stringBuilder, tabIndex);
+            stringBuilder.Append(text);
+        }
+
         public static void AppendLine(this StringBuilder stringBuilder, string text, int tabIndex)
         {
             AppendTabs(stringBuilder, tabIndex);

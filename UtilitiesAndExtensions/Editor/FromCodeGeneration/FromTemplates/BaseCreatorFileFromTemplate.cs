@@ -81,7 +81,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
                                     script.AppendLine(linesInValue[j], tabIndex);
                                 }
                                 if (linesInValue.Length > 1)
-                                    script.Append(linesInValue[linesInValue.Length - 1]);
+                                    script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
                             }
 
                             word.Clear();
