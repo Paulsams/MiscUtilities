@@ -10,8 +10,13 @@ namespace Paulsams.MicsUtils
     {
         public static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
         {
-            FieldInfo GetFieldInfoForField(object current, string nameField) =>
-                current.GetType().GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo GetFieldInfoForField(Type typeObject, string nameField)
+            {
+                var fieldInfo = typeObject.GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+                if (fieldInfo == null && typeObject.BaseType != null)
+                    return GetFieldInfoForField(typeObject.BaseType, nameField);
+                return fieldInfo;
+            }
 
             var namesProperty = propertyPath.Split('.');
             object currentObject = targetObject;
@@ -36,7 +41,7 @@ namespace Paulsams.MicsUtils
                     continue;
                 }
 
-                fieldInfo = GetFieldInfoForField(currentObject, namesProperty[i]);
+                fieldInfo = GetFieldInfoForField(currentObject.GetType(), namesProperty[i]);
                 parentObject = currentObject;
                 currentObject = fieldInfo.GetValue(currentObject);
             }
