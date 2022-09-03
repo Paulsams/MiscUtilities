@@ -27,7 +27,7 @@ namespace Paulsams.MicsUtils
             fieldData.field.SetValue(fieldData.parentObject, value);
         }
 
-        private static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+        public static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
         {
             property.serializedObject.ApplyModifiedProperties();
 
