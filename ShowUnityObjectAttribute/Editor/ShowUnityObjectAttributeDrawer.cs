@@ -70,6 +70,7 @@ public class ShowUnityObjectAttributeDrawer : PropertyDrawer
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        position.height = EditorGUIUtility.singleLineHeight;
         Rect objectRect = position;
         float offset = EditorGUIUtility.labelWidth + 2f;
         objectRect.x += offset;
