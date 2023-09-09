@@ -35,17 +35,18 @@ namespace Paulsams.MicsUtils
 
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
         {
-            var fieldTypeName = property.managedReferenceFieldTypename;
-            if (string.IsNullOrEmpty(fieldTypeName))
+            var fieldTypename = property.managedReferenceFieldTypename;
+            if (string.IsNullOrEmpty(fieldTypename))
                 throw new Exception("ManagedReferenceFieldTypename is empty");
-
-            var splitFieldTypename = fieldTypeName.Split(' ');
-            var assemblyName = splitFieldTypename[0];
-            var typeName = splitFieldTypename[1];
-            var assembly = Assembly.Load(assemblyName);
-            var targetType = assembly.GetType(typeName);
-
-            return targetType;
+            return SerializedPropertyUtilities.GetManagedReferenceType(fieldTypename);
+        }
+        
+        public static Type GetManagedReferenceFullType(this SerializedProperty property)
+        {
+            var fullTypename = property.managedReferenceFullTypename;
+            if (string.IsNullOrEmpty(fullTypename))
+                throw new Exception("ManagedReferenceFieldTypename is empty");
+            return SerializedPropertyUtilities.GetManagedReferenceType(fullTypename);
         }
 
         public static Type GetTypeObjectReference(this SerializedProperty property)
