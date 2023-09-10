@@ -8,7 +8,7 @@ namespace Paulsams.MicsUtils
 {
     public static class SerializedPropertyRuntimeUtilities
     {
-        public static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
+        public static (FieldInfo field, int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
         {
             FieldInfo GetFieldInfoForField(Type typeObject, string nameField)
             {
@@ -22,10 +22,13 @@ namespace Paulsams.MicsUtils
             object currentObject = targetObject;
             object parentObject = null;
             FieldInfo fieldInfo = null;
+            int? indexArrayElement = null;
             for (int i = 0; i < namesProperty.Length; ++i)
             {
                 //Method "Split" split the string "Array.data[xxx]", so I do i + 1.
-                bool isArray = namesProperty[i] == "Array" && i + 1 < namesProperty.Length && namesProperty[i + 1].Contains("data[");
+                bool isArray = namesProperty[i] == "Array" &&
+                               i + 1 < namesProperty.Length &&
+                               namesProperty[i + 1].Contains("data[");
                 if (isArray)
                 {
                     string dataArray = namesProperty[i + 1];
@@ -37,6 +40,8 @@ namespace Paulsams.MicsUtils
                         throw new InvalidOperationException("Size of array is less than index found by propertyPath.");
 
                     currentObject = array[indexInArray];
+                    parentObject = array;
+                    indexArrayElement = indexInArray;
                     ++i;
                     continue;
                 }
@@ -44,8 +49,9 @@ namespace Paulsams.MicsUtils
                 fieldInfo = GetFieldInfoForField(currentObject.GetType(), namesProperty[i]);
                 parentObject = currentObject;
                 currentObject = fieldInfo.GetValue(currentObject);
+                indexArrayElement = null;
             }
-            return (fieldInfo, parentObject, currentObject);
+            return (fieldInfo, indexArrayElement, parentObject, currentObject);
         }
 
         public static int GetIndexFromArrayProperty(string dataArray)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
@@ -23,10 +24,13 @@ namespace Paulsams.MicsUtils
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
             var fieldData = GetFieldInfoFromPropertyPath(property);
-            fieldData.field.SetValue(fieldData.parentObject, value);
+            if (fieldData.indexArrayElement.HasValue)
+                ((IList)fieldData.parentObject)[fieldData.indexArrayElement.Value] = value;
+            else
+                fieldData.field.SetValue(fieldData.parentObject, value);
         }
 
-        public static (FieldInfo field, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+        public static (FieldInfo field, int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
         {
             property.serializedObject.ApplyModifiedProperties();
 
@@ -108,10 +112,11 @@ namespace Paulsams.MicsUtils
             switch (source.propertyType)
             {
                 case SerializedPropertyType.Generic:
-                    var fieldType = source.GetFieldInfoFromPropertyPath().field.FieldType;
-                    var newObj = fieldType.IsArray
+                    var fieldData = source.GetFieldInfoFromPropertyPath();
+                    var fieldType = fieldData.field.FieldType;
+                    var newObj = fieldType.IsArray && fieldData.indexArrayElement.HasValue == false
                         ? Array.CreateInstance(fieldType.GetElementType(), source.arraySize)
-                        : Activator.CreateInstance(fieldType);
+                        : Activator.CreateInstance(fieldData.indexArrayElement.HasValue ? fieldType.GetElementType() : fieldType);
                     // FormatterServices.GetUninitializedObject --
                     // TODO: it can be called if the activator above throws an error/there is no empty constructor.
                     destination.SetValueFromPropertyPath(newObj);
