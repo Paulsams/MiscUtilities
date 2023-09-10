@@ -109,8 +109,11 @@ namespace Paulsams.MicsUtils
         {
             case SerializedPropertyType.Generic:
                 var fieldType = source.GetFieldInfoFromPropertyPath().field.FieldType;
-                var newObj = Activator.CreateInstance(fieldType);
-                // FormatterServices.GetUninitializedObject -- можно, если активатор выше кидает ошибку
+                var newObj = fieldType.IsArray
+                    ? Array.CreateInstance(fieldType, source.arraySize)
+                    : Activator.CreateInstance(fieldType);
+                // FormatterServices.GetUninitializedObject --
+                // TODO: it can be called if the activator above throws an error/there is no empty constructor.
                 destination.SetValueFromPropertyPath(newObj);
                 break;
             case SerializedPropertyType.ManagedReference:
