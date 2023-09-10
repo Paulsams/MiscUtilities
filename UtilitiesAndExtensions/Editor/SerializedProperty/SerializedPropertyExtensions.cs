@@ -24,13 +24,22 @@ namespace Paulsams.MicsUtils
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
             var fieldData = GetFieldInfoFromPropertyPath(property);
-            if (fieldData.indexArrayElement.HasValue)
-                ((IList)fieldData.parentObject)[fieldData.indexArrayElement.Value] = value;
-            else
-                fieldData.field.SetValue(fieldData.parentObject, value);
+            switch (fieldData.serializedPropertyFieldType)
+            {
+                case SerializedPropertyFieldType.ArrayElement:
+                    ((IList)fieldData.parentObject)[fieldData.indexArrayElement.Value] = value;
+                    break;
+                case SerializedPropertyFieldType.ArraySize:
+                    throw new InvalidOperationException(
+                        "Setting the size of the array through reflection is not supported yet.");
+                default:
+                    fieldData.field.SetValue(fieldData.parentObject, value);
+                    break;
+            }
         }
 
-        public static (FieldInfo field, int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+        public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
+            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
         {
             property.serializedObject.ApplyModifiedProperties();
 
@@ -114,9 +123,11 @@ namespace Paulsams.MicsUtils
                 case SerializedPropertyType.Generic:
                     var fieldData = source.GetFieldInfoFromPropertyPath();
                     var fieldType = fieldData.field.FieldType;
-                    var newObj = fieldType.IsArray && fieldData.indexArrayElement.HasValue == false
+                    bool isArrayElement = fieldData.serializedPropertyFieldType ==
+                                          SerializedPropertyFieldType.ArrayElement;
+                    var newObj = fieldType.IsArray && isArrayElement == false
                         ? Array.CreateInstance(fieldType.GetElementType(), source.arraySize)
-                        : Activator.CreateInstance(fieldData.indexArrayElement.HasValue ? fieldType.GetElementType() : fieldType);
+                        : Activator.CreateInstance(isArrayElement ? fieldType.GetElementType() : fieldType);
                     // FormatterServices.GetUninitializedObject --
                     // TODO: it can be called if the activator above throws an error/there is no empty constructor.
                     destination.SetValueFromPropertyPath(newObj);

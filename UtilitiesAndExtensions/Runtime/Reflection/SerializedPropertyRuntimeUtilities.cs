@@ -1,14 +1,21 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine;
 
 namespace Paulsams.MicsUtils
 {
+    public enum SerializedPropertyFieldType
+    {
+        None,
+        ArrayElement,
+        ArraySize,
+        Other,
+    }
+    
     public static class SerializedPropertyRuntimeUtilities
     {
-        public static (FieldInfo field, int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
+        public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
+            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
         {
             FieldInfo GetFieldInfoForField(Type typeObject, string nameField)
             {
@@ -23,35 +30,50 @@ namespace Paulsams.MicsUtils
             object parentObject = null;
             FieldInfo fieldInfo = null;
             int? indexArrayElement = null;
+            SerializedPropertyFieldType serializedPropertyFieldType = SerializedPropertyFieldType.None;
             for (int i = 0; i < namesProperty.Length; ++i)
             {
-                //Method "Split" split the string "Array.data[xxx]", so I do i + 1.
-                bool isArray = namesProperty[i] == "Array" &&
-                               i + 1 < namesProperty.Length &&
-                               namesProperty[i + 1].Contains("data[");
+                bool isArray = namesProperty[i] == "Array";
                 if (isArray)
                 {
-                    string dataArray = namesProperty[i + 1];
-                    int indexInArray = GetIndexFromArrayProperty(dataArray);
+                    // Method "Split" split the string "Array.data[xxx]" or "Array.size", so I do i + 1.
+                    if (i + 1 < namesProperty.Length)
+                    {
+                        var array = currentObject as IList;
+                        string propertyInArray = namesProperty[i + 1];
+                        if (propertyInArray == "size")
+                        {
+                            currentObject = array.Count;
+                            parentObject = array;
+                            indexArrayElement = null;
+                            serializedPropertyFieldType = SerializedPropertyFieldType.ArraySize;
+                            ++i;
+                            continue;
+                        }
+                        else if (propertyInArray.Contains("data["))
+                        {
+                            int indexInArray = GetIndexFromArrayProperty(propertyInArray);
 
-                    var array = currentObject as IList;
+                            if (array.Count <= indexInArray)
+                                throw new InvalidOperationException("Size of array is less than index found by propertyPath.");
 
-                    if (array.Count <= indexInArray)
-                        throw new InvalidOperationException("Size of array is less than index found by propertyPath.");
-
-                    currentObject = array[indexInArray];
-                    parentObject = array;
-                    indexArrayElement = indexInArray;
-                    ++i;
-                    continue;
+                            currentObject = array[indexInArray];
+                            parentObject = array;
+                            indexArrayElement = indexInArray;
+                            serializedPropertyFieldType = SerializedPropertyFieldType.ArrayElement;
+                            ++i;
+                            continue;
+                        }
+                    }
                 }
 
                 fieldInfo = GetFieldInfoForField(currentObject.GetType(), namesProperty[i]);
                 parentObject = currentObject;
                 currentObject = fieldInfo.GetValue(currentObject);
                 indexArrayElement = null;
+                serializedPropertyFieldType = SerializedPropertyFieldType.Other;
             }
-            return (fieldInfo, indexArrayElement, parentObject, currentObject);
+            return (fieldInfo, serializedPropertyFieldType, indexArrayElement, parentObject, currentObject);
         }
 
         public static int GetIndexFromArrayProperty(string dataArray)
