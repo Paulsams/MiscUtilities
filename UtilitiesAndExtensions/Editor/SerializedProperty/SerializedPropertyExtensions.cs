@@ -99,7 +99,6 @@ namespace Paulsams.MicsUtils
         private static void Iterator(SerializedProperty source, SerializedProperty destination,
             Func<SerializedProperty, SerializedProperty, bool> overrideBehaviour)
         {
-<<<<<<< HEAD
             if (overrideBehaviour != null)
             {
                 if (overrideBehaviour.Invoke(source, destination))
@@ -119,46 +118,6 @@ namespace Paulsams.MicsUtils
                     break;
                 case SerializedPropertyType.ManagedReference:
                     if (source.managedReferenceFullTypename == string.Empty)
-=======
-            case SerializedPropertyType.Generic:
-                var fieldType = source.GetFieldInfoFromPropertyPath().field.FieldType;
-                var newObj = fieldType.IsArray
-                    ? Array.CreateInstance(fieldType, source.arraySize)
-                    : Activator.CreateInstance(fieldType);
-                // FormatterServices.GetUninitializedObject --
-                // TODO: it can be called if the activator above throws an error/there is no empty constructor.
-                destination.SetValueFromPropertyPath(newObj);
-                break;
-            case SerializedPropertyType.ManagedReference:
-                if (source.managedReferenceFullTypename == string.Empty)
-                    break;
-
-                var assemblyNameAndTypeName = source.managedReferenceFullTypename.Split(' ');
-                var type = Assembly.Load(assemblyNameAndTypeName[0]).GetType(assemblyNameAndTypeName[1]);
-                //destination.managedReferenceValue = FormatterServices.GetUninitializedObject(type);
-                destination.managedReferenceValue = Activator.CreateInstance(type);
-                break;
-            case SerializedPropertyType.Integer:
-            case SerializedPropertyType.Enum:
-            case SerializedPropertyType.ArraySize:
-                switch (source.numericType)
-                {
-                    case SerializedPropertyNumericType.Int64:
-                        destination.ulongValue = source.ulongValue;
-                        break;
-                    case SerializedPropertyNumericType.UInt64:
-                        destination.longValue = source.longValue;
-                        break;
-                    case SerializedPropertyNumericType.UInt32:
-                    case SerializedPropertyNumericType.UInt16:
-                    case SerializedPropertyNumericType.UInt8:
-                        destination.uintValue = destination.uintValue;
-                        break;
-                    case SerializedPropertyNumericType.Int16:
-                    case SerializedPropertyNumericType.Int8:
-                    default:
-                        destination.intValue = source.intValue;
->>>>>>> 854091f934c4d8f275324abea2c3ee011b2b9344
                         break;
 
                     var assemblyNameAndTypeName = source.managedReferenceFullTypename.Split(' ');
