@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.Serialization;
 using UnityEditor;
 
 namespace Paulsams.MicsUtils
@@ -125,11 +126,32 @@ namespace Paulsams.MicsUtils
                     var fieldType = fieldData.field.FieldType;
                     bool isArrayElement = fieldData.serializedPropertyFieldType ==
                                           SerializedPropertyFieldType.ArrayElement;
-                    var newObj = fieldType.IsArray && isArrayElement == false
-                        ? Array.CreateInstance(fieldType.GetElementType(), source.arraySize)
-                        : Activator.CreateInstance(isArrayElement ? fieldType.GetElementType() : fieldType);
-                    // FormatterServices.GetUninitializedObject --
-                    // TODO: it can be called if the activator above throws an error/there is no empty constructor.
+                    object newObj;
+                    if (fieldType.IsArray && isArrayElement == false)
+                    {
+                        newObj = Array.CreateInstance(fieldType.GetElementType(), source.arraySize);
+                    }
+                    else if (fieldData.currentObject is IList list)
+                    {
+                        var newList = Activator.CreateInstance(fieldType) as IList;
+                        for (int i = 0; i < list.Count; ++i)
+                            newList.Add(list[i]);
+                        
+                        newObj = newList;
+                    }
+                    else
+                    {
+                        var objectType = isArrayElement
+                            ? fieldType.IsArray
+                                ? fieldType.GetElementType()
+                                : fieldType.GetGenericArguments()[0]
+                            : fieldType;
+                        if (objectType.IsValueType || objectType.GetConstructor(Type.EmptyTypes) != null)
+                            newObj = Activator.CreateInstance(objectType);
+                        else
+                            newObj = FormatterServices.GetUninitializedObject(objectType);
+                    }
+
                     destination.SetValueFromPropertyPath(newObj);
                     break;
                 case SerializedPropertyType.ManagedReference:
