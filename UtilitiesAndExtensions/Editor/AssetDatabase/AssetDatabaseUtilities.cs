@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Paulsams.MicsUtils
@@ -29,20 +27,18 @@ namespace Paulsams.MicsUtils
             return GetAssetsPathsFromFilenameExtension("prefab");
         }
 
-        private static IEnumerable<string> GetAssetsPathsFromFilenameExtension(string filenameExtension)
+        public static IEnumerable<string> GetAssetsPathsFromFilenameExtension(string filenameExtension)
         {
             string[] paths = AssetDatabase.GetAllAssetPaths();
 
             foreach (string path in paths)
             {
-                string[] pathSplit = path.Split('.');
-                if (pathSplit.Length > 0)
+                var lastDot = path.LastIndexOf('.');
+                if (lastDot != -1)
                 {
-                    string currentExtension = pathSplit[pathSplit.Length - 1];
+                    string currentExtension = path.Substring(lastDot + 1);
                     if (currentExtension == filenameExtension)
-                    {
                         yield return path;
-                    }
                 }
             }
         }
