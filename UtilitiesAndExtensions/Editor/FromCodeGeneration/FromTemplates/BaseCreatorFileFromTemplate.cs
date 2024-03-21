@@ -1,64 +1,37 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
 
 namespace Paulsams.MicsUtils.CodeGeneration
 {
-    public abstract class BaseCreatorScriptFromTemplate
+    public abstract class BaseCodeGeneratorFromTemplate
     {
-        protected class InsertWord
+        protected class InserterCode
         {
             public readonly StringBuilder Builder;
             private int _tabIndex;
 
-            public InsertWord()
-            {
-                Builder = new StringBuilder();
-            }
+            public InserterCode() => Builder = new StringBuilder();
 
-            public InsertWord(int capacity)
-            {
-                Builder = new StringBuilder(capacity);
-            }
+            public InserterCode(int capacity) => Builder = new StringBuilder(capacity);
+            
+            public void IncrementCountTabs() => ++_tabIndex;
+            public void DecrementCountTabs() => --_tabIndex;
 
-            public void AppendLine(string text)
-            {
-                Builder.AppendLine(text, _tabIndex);
-            }
+            public void SkipLine() => Builder.AppendLine();
+            public void AppendLine(string text) => Builder.AppendLine(text, _tabIndex);
+            public void Append(string text) => Builder.Append(text);
 
-            public void Append(string text)
-            {
-                Builder.Append(text);
-            }
+            public void AppendWithTabs(string text) => Builder.Append(text, _tabIndex);
+            public void AppendTabs() => Builder.AppendTabs(_tabIndex);
 
-            public void AppendWithTabs(string text)
-            {
-                Builder.Append(text, _tabIndex);
-            }
+            public void AppendOpeningBrace() => Builder.AppendOpeningBrace(ref _tabIndex);
+            public void AppendBreakingBrace(bool semicolon = false) => Builder.AppendBreakingBrace(ref _tabIndex, semicolon);
 
-            public void AppendTabs()
-            {
-                Builder.AppendTabs(_tabIndex);
-            }
-
-            public void AppendOpeningBrace()
-            {
-                Builder.AppendOpeningBrace(ref _tabIndex);
-            }
-
-            public void AppendBreakingBrace(bool semicolon = false)
-            {
-                Builder.AppendBreakingBrace(ref _tabIndex, semicolon);
-            }
-
-            public override string ToString()
-            {
-                return Builder.ToString();
-            }
+            public override string ToString() => Builder.ToString();
         }
 
         public struct FileCreateInfo
@@ -77,11 +50,11 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
         protected abstract string TextError { get; }
 
-        protected Dictionary<string, string> _keysValues;
+        protected readonly Dictionary<string, string> KeyToBlockCode;
 
-        protected BaseCreatorScriptFromTemplate(string scriptNamespace)
+        protected BaseCodeGeneratorFromTemplate(string scriptNamespace)
         {
-            _keysValues = new Dictionary<string, string>()
+            KeyToBlockCode = new Dictionary<string, string>()
             {
                 ["NamespaceBegin"] = $"namespace {scriptNamespace}{Environment.NewLine}{{",
                 ["NamespaceEnd"] = "}",
@@ -137,9 +110,10 @@ namespace Paulsams.MicsUtils.CodeGeneration
                 {
                     if (charInBaseScript == '#')
                     {
-                        if (_keysValues.TryGetValue(word.ToString(), out string value))
+                        if (KeyToBlockCode.TryGetValue(word.ToString(), out string value))
                         {
-                            if (value.Length >= Environment.NewLine.Length && value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
+                            if (value.Length >= Environment.NewLine.Length
+                                && value.Substring(value.Length - Environment.NewLine.Length) == Environment.NewLine)
                                 value = value.Remove(value.Length - Environment.NewLine.Length);
 
                             int tabIndex = lineInBaseScript.IndexOf(word[0]) / 4;
@@ -153,9 +127,7 @@ namespace Paulsams.MicsUtils.CodeGeneration
                                 script.AppendLine(linesInValue[0]);
 
                                 for (int j = 1; j < linesInValue.Length - 1; ++j)
-                                {
                                     script.AppendLine(linesInValue[j], tabIndex);
-                                }
 
                                 script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
                             }
