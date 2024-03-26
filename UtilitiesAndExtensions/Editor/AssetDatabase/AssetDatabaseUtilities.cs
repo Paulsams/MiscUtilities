@@ -8,7 +8,7 @@ namespace Paulsams.MicsUtils
 {
     public static class AssetDatabaseUtilities
     {
-        public static IEnumerable<Scene> GetPathsToAllScenesInProject()
+        public static IEnumerable<Scene> GetAllScenesInAssets()
         {
             var oldScenesSetup = EditorSceneManager.GetSceneManagerSetup();
 
@@ -19,7 +19,8 @@ namespace Paulsams.MicsUtils
                     Selection.activeGameObject.GetLocalIdentifierInFile()
                 );
 
-            foreach (var pathToScene in GetAssetsPathsFromFilenameExtension("unity"))
+            foreach (var pathToScene in GetAssetsPathsFromFilenameExtension("unity")
+                         .Where(path => path.StartsWith("Assets/")))
             {
                 Scene scene = EditorSceneManager.OpenScene(pathToScene, OpenSceneMode.Single);
                 yield return scene;
