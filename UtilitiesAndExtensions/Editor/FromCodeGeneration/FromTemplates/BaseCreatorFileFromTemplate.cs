@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using UnityEditor.Compilation;
 
 namespace Paulsams.MicsUtils.CodeGeneration
 {
@@ -38,26 +39,45 @@ namespace Paulsams.MicsUtils.CodeGeneration
         {
             public readonly string TemplateScript;
             public readonly string FileName;
-            public readonly string AbsolutePathToFolder;
+            public readonly string PathToFolder;
+            public readonly string Namespace;
 
-            public FileCreateInfo(string baseScript, string fileName, string absolutePathToFolder)
+            public static FileCreateInfo Create(string templateScript, string fileName,
+                string pathToFolder, string @namespace = null) =>
+                new FileCreateInfo(templateScript, fileName, pathToFolder, @namespace);
+
+            public static FileCreateInfo CreateWithNamespaceFromPath(string templateScript, string fileName,
+                string absolutePathToFolder, string relativePathInUnityProject) =>
+                new FileCreateInfo(templateScript, fileName, absolutePathToFolder, 
+                    CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(relativePathInUnityProject));
+            
+            public static FileCreateInfo CreateWithNamespaceFromPath(string templateScript, string fileName,
+                string relativePathInUnityProject) =>
+                new FileCreateInfo(templateScript, fileName, relativePathInUnityProject, 
+                    CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(relativePathInUnityProject));
+
+            private FileCreateInfo(string templateScript, string fileName, string absolutePathToFolder, string @namespace)
             {
-                TemplateScript = baseScript;
+                TemplateScript = templateScript;
                 FileName = fileName;
-                AbsolutePathToFolder = absolutePathToFolder;
+                PathToFolder = absolutePathToFolder;
+                Namespace = @namespace;
             }
         }
+
+        private const string _namespaceBeginKey = "NamespaceBegin";
+        private const string _namespaceEndKey = "NamespaceEnd";
 
         protected abstract string TextError { get; }
 
         protected readonly Dictionary<string, string> KeyToBlockCode;
 
-        protected BaseCodeGeneratorFromTemplate(string scriptNamespace)
+        protected BaseCodeGeneratorFromTemplate()
         {
             KeyToBlockCode = new Dictionary<string, string>()
             {
-                ["NamespaceBegin"] = $"namespace {scriptNamespace}{Environment.NewLine}{{",
-                ["NamespaceEnd"] = "}",
+                [_namespaceBeginKey] = "",
+                [_namespaceEndKey] = "",
             };
         }
 
@@ -79,6 +99,12 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
         private void CreateFile(FileCreateInfo info)
         {
+            if (info.Namespace != null)
+            {
+                KeyToBlockCode["NamespaceBegin"] = $"namespace {info.Namespace}{Environment.NewLine}{{";
+                KeyToBlockCode["NamespaceEnd"] = "}";
+            }
+
             var baseScript = info.TemplateScript;
             StringBuilder script = new StringBuilder((int)(baseScript.Length * 1.5f));
             var linesInBaseScript = baseScript.Split(Environment.NewLine);
@@ -93,11 +119,17 @@ namespace Paulsams.MicsUtils.CodeGeneration
 
             IteratorInLine(script, word, linesInBaseScript[linesInBaseScript.Length - 1]);
 
-            var absolutePathToFolder = info.AbsolutePathToFolder;
-            if (Directory.Exists(absolutePathToFolder) == false)
-                Directory.CreateDirectory(absolutePathToFolder);
+            if (info.Namespace != null)
+            {
+                KeyToBlockCode["NamespaceBegin"] = "";
+                KeyToBlockCode["NamespaceEnd"] = "";
+            }
 
-            File.WriteAllText($"{absolutePathToFolder}/{info.FileName}.cs", script.ToString());
+            var pathToFolder = info.PathToFolder;
+            if (Directory.Exists(pathToFolder) == false)
+                Directory.CreateDirectory(pathToFolder);
+
+            File.WriteAllText($"{pathToFolder}/{info.FileName}.cs", script.ToString());
             AssetDatabase.Refresh();
         }
 
