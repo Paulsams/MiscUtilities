@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using UnityEditor;
+using UnityEngine;
 
 namespace Paulsams.MicsUtils
 {
@@ -20,7 +22,8 @@ namespace Paulsams.MicsUtils
             return managedReferenceValue;
         }
 
-        public static object GetValueFromPropertyPath(this SerializedProperty property) => GetFieldInfoFromPropertyPath(property).currentObject;
+        public static object GetValueFromPropertyPath(this SerializedProperty property) =>
+            GetFieldInfoFromPropertyPath(property).currentObject;
 
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
@@ -40,11 +43,13 @@ namespace Paulsams.MicsUtils
         }
 
         public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
-            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(this SerializedProperty property)
+            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(
+                this SerializedProperty property)
         {
             property.serializedObject.ApplyModifiedProperties();
 
-            return SerializedPropertyRuntimeUtilities.GetFieldInfoFromPropertyPath(property.serializedObject.targetObject, property.propertyPath);
+            return SerializedPropertyRuntimeUtilities.GetFieldInfoFromPropertyPath(
+                property.serializedObject.targetObject, property.propertyPath);
         }
 
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
@@ -54,7 +59,7 @@ namespace Paulsams.MicsUtils
                 throw new Exception("ManagedReferenceFieldTypename is empty");
             return SerializedPropertyUtilities.GetManagedReferenceType(fieldTypename);
         }
-        
+
         public static Type GetManagedReferenceFullType(this SerializedProperty property)
         {
             var fullTypename = property.managedReferenceFullTypename;
@@ -65,16 +70,19 @@ namespace Paulsams.MicsUtils
 
         public static Type GetTypeObjectReference(this SerializedProperty property)
         {
-            string nameTypeProperty = property.type.Substring(6).TrimEnd('>');
-            foreach (Type type in ReflectionUtilities.GetAllTypesInCurrentDomain())
-            {
-                if (type.Name == nameTypeProperty)
-                {
-                    return type;
-                }
-            }
+            if (property.propertyType != SerializedPropertyType.ObjectReference)
+                throw new InvalidOperationException(
+                    "The type of this SerializedProperty is not an inheritor of UnityEngine.Object.");
 
-            throw new InvalidOperationException("The type of this SerializedProperty is not an inheritor of UnityEngine.Object.");
+            string nameTypeProperty = property.type.Substring(6).TrimEnd('>');
+            var outputType = TypeCache
+                .GetTypesDerivedFrom<UnityEngine.Object>()
+                .FirstOrDefault(type => type.Name == nameTypeProperty);
+
+            if (outputType == null)
+                throw new InvalidOperationException("Couldn't find type");
+
+            return outputType;
         }
 
         public static IEnumerable<SerializedProperty> GetChildren(this SerializedProperty property)
@@ -92,18 +100,19 @@ namespace Paulsams.MicsUtils
                         break;
 
                     yield return currentProperty;
-                }
-                while (currentProperty.NextVisible(false));
+                } while (currentProperty.NextVisible(false));
             }
         }
-        
+
         public static void CopyValueToOtherProperty(this SerializedProperty source, SerializedProperty destination,
             Func<SerializedProperty, SerializedProperty, bool> additionally = null)
         {
             if (source.type != destination.type &&
-                (source.propertyType == SerializedPropertyType.ManagedReference &&
+                source.propertyType == SerializedPropertyType.ManagedReference &&
                 source.managedReferenceFieldTypename != destination.managedReferenceFieldTypename &&
-                ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(destination.GetFieldInfoFromPropertyPath().field.FieldType).Contains(source.GetValueFromPropertyPath().GetType()) == false))
+                TypeCache.GetTypesDerivedFrom(destination.GetFieldInfoFromPropertyPath().field.FieldType)
+                    .Contains(source.GetValueFromPropertyPath().GetType()) == false
+               )
                 throw new Exception($"{source.type} --- {destination.type}");
 
             Iterator(source, destination, additionally);
@@ -118,7 +127,7 @@ namespace Paulsams.MicsUtils
                 if (overrideBehaviour.Invoke(source, destination))
                     return;
             }
-            
+
             switch (source.propertyType)
             {
                 case SerializedPropertyType.Generic:
@@ -136,7 +145,7 @@ namespace Paulsams.MicsUtils
                         var newList = Activator.CreateInstance(fieldType) as IList;
                         for (int i = 0; i < list.Count; ++i)
                             newList.Add(list[i]);
-                        
+
                         newObj = newList;
                     }
                     else
@@ -185,6 +194,7 @@ namespace Paulsams.MicsUtils
                             destination.intValue = source.intValue;
                             break;
                     }
+
                     break;
                 case SerializedPropertyType.Boolean:
                     destination.boolValue = source.boolValue;
@@ -253,10 +263,12 @@ namespace Paulsams.MicsUtils
                     destination.hash128Value = source.hash128Value;
                     break;
                 default:
-                    throw new NotSupportedException($"Set on boxedValue property is not supported on \"{source.propertyPath}\" because it has an unsupported propertyType {source.propertyType}.");
+                    throw new NotSupportedException(
+                        $"Set on boxedValue property is not supported on \"{source.propertyPath}\" because it has an unsupported propertyType {source.propertyType}.");
             }
 
-            if (source.propertyType == SerializedPropertyType.Generic || source.propertyType == SerializedPropertyType.ManagedReference)
+            if (source.propertyType == SerializedPropertyType.Generic ||
+                source.propertyType == SerializedPropertyType.ManagedReference)
             {
                 var copiedDestination = destination.Copy();
                 copiedDestination.NextVisible(true);

@@ -1,5 +1,5 @@
 {
-    "name": "Paulsams.MiscUtilities.Runtime",
+    "name": "Paulsams.MiscUtilities",
     "rootNamespace": "Paulsams.MicsUtils",
     "references": [
         "Unity.Mathematics"

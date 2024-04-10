@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,9 +22,7 @@ namespace Paulsams.MicsUtils
                 var fieldNeedCopy = fieldsOldManagedReference.FirstOrDefault((oldField) => oldField.FieldType == newField.FieldType && oldField.Name == newField.Name);
 
                 if (fieldNeedCopy != default)
-                {
                     newField.SetValue(destination, fieldNeedCopy.GetValue(source));
-                }
             }
         }
 
