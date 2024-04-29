@@ -11,15 +11,17 @@ namespace Paulsams.MicsUtils
         ArraySize,
         Other,
     }
-    
+
     public static class SerializedPropertyRuntimeUtilities
     {
         public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
-            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(object targetObject, string propertyPath)
+            int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(
+                object targetObject, string propertyPath)
         {
             FieldInfo GetFieldInfoForField(Type typeObject, string nameField)
             {
-                var fieldInfo = typeObject.GetField(nameField, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+                var fieldInfo = typeObject.GetField(nameField,
+                    BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
                 if (fieldInfo == null && typeObject.BaseType != null)
                     return GetFieldInfoForField(typeObject.BaseType, nameField);
                 return fieldInfo;
@@ -55,7 +57,8 @@ namespace Paulsams.MicsUtils
                             int indexInArray = GetIndexFromArrayProperty(propertyInArray);
 
                             if (array.Count <= indexInArray)
-                                throw new InvalidOperationException("Size of array is less than index found by propertyPath.");
+                                throw new InvalidOperationException(
+                                    "Size of array is less than index found by propertyPath.");
 
                             currentObject = array[indexInArray];
                             parentObject = array;
@@ -73,6 +76,7 @@ namespace Paulsams.MicsUtils
                 indexArrayElement = null;
                 serializedPropertyFieldType = SerializedPropertyFieldType.Other;
             }
+
             return (fieldInfo, serializedPropertyFieldType, indexArrayElement, parentObject, currentObject);
         }
 

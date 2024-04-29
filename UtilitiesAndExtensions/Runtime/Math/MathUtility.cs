@@ -11,6 +11,7 @@ namespace Paulsams.MicsUtils
             {
                 angle += 360f;
             }
+
             return angle;
         }
 
@@ -22,7 +23,8 @@ namespace Paulsams.MicsUtils
 
         public static float ClampAngle(float angle) => (angle + 360f) % 360f - 180f;
 
-        public static float NearestAngle(float angle, float stepRotation) => Mathf.Round(angle / stepRotation) * stepRotation % 360f;
+        public static float NearestAngle(float angle, float stepRotation) =>
+            Mathf.Round(angle / stepRotation) * stepRotation % 360f;
 
         public static float NearestAngle(float angle, float[] endAngles)
         {

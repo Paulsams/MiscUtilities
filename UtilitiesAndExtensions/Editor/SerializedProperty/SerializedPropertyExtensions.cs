@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using UnityEditor;
-using UnityEngine;
 
 namespace Paulsams.MicsUtils
 {
@@ -13,11 +12,11 @@ namespace Paulsams.MicsUtils
     {
         public static object GetManagedReferenceValueFromPropertyPath(this SerializedProperty property)
         {
-            #if UNITY_2021_2_OR_NEWER
+#if UNITY_2021_2_OR_NEWER
             object managedReferenceValue = property.managedReferenceValue;
-            #else
+#else
             object managedReferenceValue = property.GetValueFromPropertyPath();
-            #endif
+#endif
 
             return managedReferenceValue;
         }
@@ -155,10 +154,7 @@ namespace Paulsams.MicsUtils
                                 ? fieldType.GetElementType()
                                 : fieldType.GetGenericArguments()[0]
                             : fieldType;
-                        if (objectType.IsValueType || objectType.GetConstructor(Type.EmptyTypes) != null)
-                            newObj = Activator.CreateInstance(objectType);
-                        else
-                            newObj = FormatterServices.GetUninitializedObject(objectType);
+                        newObj = ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(objectType);
                     }
 
                     destination.SetValueFromPropertyPath(newObj);
@@ -169,8 +165,8 @@ namespace Paulsams.MicsUtils
 
                     var assemblyNameAndTypeName = source.managedReferenceFullTypename.Split(' ');
                     var type = Assembly.Load(assemblyNameAndTypeName[0]).GetType(assemblyNameAndTypeName[1]);
-                    //destination.managedReferenceValue = FormatterServices.GetUninitializedObject(type);
-                    destination.managedReferenceValue = Activator.CreateInstance(type);
+                    destination.managedReferenceValue =
+                        ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(type);
                     break;
                 case SerializedPropertyType.Integer:
                 case SerializedPropertyType.Enum:
@@ -264,7 +260,8 @@ namespace Paulsams.MicsUtils
                     break;
                 default:
                     throw new NotSupportedException(
-                        $"Set on boxedValue property is not supported on \"{source.propertyPath}\" because it has an unsupported propertyType {source.propertyType}.");
+                        $"Set on boxedValue property is not supported on \"{source.propertyPath}\"" +
+                        $"because it has an unsupported propertyType {source.propertyType}.");
             }
 
             if (source.propertyType == SerializedPropertyType.Generic ||
