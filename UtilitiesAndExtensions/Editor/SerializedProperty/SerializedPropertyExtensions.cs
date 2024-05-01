@@ -43,13 +43,9 @@ namespace Paulsams.MicsUtils
 
         public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
             int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(
-                this SerializedProperty property)
-        {
-            property.serializedObject.ApplyModifiedProperties();
-
-            return SerializedPropertyRuntimeUtilities.GetFieldInfoFromPropertyPath(
+                this SerializedProperty property) =>
+            SerializedPropertyRuntimeUtilities.GetFieldInfoFromPropertyPath(
                 property.serializedObject.targetObject, property.propertyPath);
-        }
 
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
         {
@@ -103,8 +99,18 @@ namespace Paulsams.MicsUtils
             }
         }
 
+        public static SerializedProperty GetParentProperty(this SerializedProperty property)
+        {
+            int dotIndex = property.propertyPath.Length - property.name.Length - 1;
+            if (dotIndex < 0)
+                return null;
+
+            var parentPropertyPath = property.propertyPath.Remove(dotIndex);
+            return property.serializedObject.FindProperty(parentPropertyPath);
+        }
+
         public static void CopyValueToOtherProperty(this SerializedProperty source, SerializedProperty destination,
-            Func<SerializedProperty, SerializedProperty, bool> additionally = null)
+            bool applyWithIsUndo, Func<SerializedProperty, SerializedProperty, bool> additionally = null)
         {
             if (source.type != destination.type &&
                 source.propertyType == SerializedPropertyType.ManagedReference &&
@@ -114,12 +120,15 @@ namespace Paulsams.MicsUtils
                )
                 throw new Exception($"{source.type} --- {destination.type}");
 
-            Iterator(source, destination, additionally);
-            destination.serializedObject.ApplyModifiedPropertiesWithoutUndo();
+            Iterator(source, destination, applyWithIsUndo, additionally);
+            if (applyWithIsUndo)
+                destination.serializedObject.ApplyModifiedProperties();
+            else
+                destination.serializedObject.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void Iterator(SerializedProperty source, SerializedProperty destination,
-            Func<SerializedProperty, SerializedProperty, bool> overrideBehaviour)
+            bool applyWithIsUndo, Func<SerializedProperty, SerializedProperty, bool> overrideBehaviour)
         {
             if (overrideBehaviour != null)
             {
@@ -157,11 +166,18 @@ namespace Paulsams.MicsUtils
                         newObj = ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(objectType);
                     }
 
+                    if (applyWithIsUndo)
+                        destination.serializedObject.ApplyModifiedProperties();
+                    else
+                        destination.serializedObject.ApplyModifiedPropertiesWithoutUndo();
                     destination.SetValueFromPropertyPath(newObj);
                     break;
                 case SerializedPropertyType.ManagedReference:
                     if (source.managedReferenceFullTypename == string.Empty)
+                    {
+                        destination.managedReferenceValue = null;
                         break;
+                    }
 
                     var assemblyNameAndTypeName = source.managedReferenceFullTypename.Split(' ');
                     var type = Assembly.Load(assemblyNameAndTypeName[0]).GetType(assemblyNameAndTypeName[1]);
@@ -271,7 +287,7 @@ namespace Paulsams.MicsUtils
                 copiedDestination.NextVisible(true);
                 foreach (var children in source.GetChildren())
                 {
-                    Iterator(children, copiedDestination, overrideBehaviour);
+                    Iterator(children, copiedDestination, applyWithIsUndo, overrideBehaviour);
                     copiedDestination.NextVisible(false);
                 }
             }
