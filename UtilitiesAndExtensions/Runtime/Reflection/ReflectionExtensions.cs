@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -7,7 +8,7 @@ namespace Paulsams.MicsUtils
 {
     public static class ReflectionExtensions
     {
-        public static T[] GetPublicConstFields<T>(this Type type, bool checkForAssignableType = false)
+        public static IEnumerable<T> GetPublicConstFields<T>(this Type type, bool checkForAssignableType = false)
         {
             return GetPublicStaticFields(type, checkForAssignableType,
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy,
@@ -15,7 +16,7 @@ namespace Paulsams.MicsUtils
                 (field) => (T)field.GetRawConstantValue());
         }
 
-        public static T[] GetPublicStaticReadonlyFields<T>(this Type type, bool checkForAssignableType = false)
+        public static IEnumerable<T> GetPublicStaticReadonlyFields<T>(this Type type, bool checkForAssignableType = false)
         {
             return GetPublicStaticFields(type, checkForAssignableType,
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy,
@@ -23,13 +24,13 @@ namespace Paulsams.MicsUtils
                 (field) => (T)field.GetValue(null));
         }
 
-        private static T[] GetPublicStaticFields<T>(this Type type, bool checkForAssignableType,
+        private static IEnumerable<T> GetPublicStaticFields<T>(this Type type, bool checkForAssignableType,
             BindingFlags bindingFlags, Func<FieldInfo, bool> predicate, Func<FieldInfo, T> selector)
         {
             return type.GetFields(bindingFlags)
                 .Where((field) => predicate(field) && (checkForAssignableType
                     ? typeof(T).IsAssignableFrom(field.FieldType)
-                    : field.FieldType == typeof(T))).Select(selector).ToArray();
+                    : field.FieldType == typeof(T))).Select(selector);
         }
     }
 }
