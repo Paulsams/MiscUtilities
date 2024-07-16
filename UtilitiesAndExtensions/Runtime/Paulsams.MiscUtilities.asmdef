@@ -1,9 +1,7 @@
 {
     "name": "Paulsams.MiscUtilities",
     "rootNamespace": "Paulsams.MicsUtils",
-    "references": [
-        "Unity.Mathematics"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

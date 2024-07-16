@@ -1,12 +1,8 @@
 {
   "name": "com.paulsams.misc-utilities",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "displayName": "MiscUtilities",
   "description": "Different utility classes for my other packages to work with.",
-  "dependencies": {
-    "com.unity.nuget.newtonsoft-json": "3.0.1",
-    "com.unity.mathematics": "1.2.5"
-  },
   "documentationUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/README.md",
   "licensesUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/LICENSE",
   "unity": "2019.2",
