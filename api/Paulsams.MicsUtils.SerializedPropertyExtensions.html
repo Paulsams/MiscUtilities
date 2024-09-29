@@ -82,7 +82,7 @@
 
   <h1 id="Paulsams_MicsUtils_SerializedPropertyExtensions" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions" class="text-break">Class SerializedPropertyExtensions
 </h1>
-  <div class="markdown level0 summary"><p>Extension methods for class: <see cref="!:SerializedProperty"></see>.</p>
+  <div class="markdown level0 summary"><p>Extension methods for class: <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -126,7 +126,7 @@
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_CopyValueToOtherProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_CopyValueToOtherProperty_SerializedProperty_SerializedProperty_System_Boolean_Func_SerializedProperty_SerializedProperty_System_Boolean__" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty,SerializedProperty,System.Boolean,Func{SerializedProperty,SerializedProperty,System.Boolean})">CopyValueToOtherProperty(SerializedProperty, SerializedProperty, bool, Func&lt;SerializedProperty, SerializedProperty, bool&gt;)</h4>
-  <div class="markdown level1 summary"><p>Copies all data from one <see cref="!:SerializedProperty"></see> to another <see cref="!:SerializedProperty"></see>.</p>
+  <div class="markdown level1 summary"><p>Copies all data from one <see cref="!:UnityEditor.SerializedProperty"></see> to another <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -158,7 +158,7 @@
       <tr>
         <td><span class="xref">bool</span></td>
         <td><span class="parametername">applyWithIsUndo</span></td>
-        <td><p>Применять ли <see cref="!:SerializedObject.ApplyModifiedProperties"></see> или <see cref="!:SerializedObject.ApplyModifiedPropertiesWithoutUndo"></see></p>
+        <td><p>Применять ли <see cref="!:UnityEditor.SerializedObject.ApplyModifiedProperties"></see> или <see cref="!:UnityEditor.SerializedObject.ApplyModifiedPropertiesWithoutUndo"></see></p>
 </td>
       </tr>
       <tr>
@@ -169,11 +169,29 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>May be thrown out if two properties cannot be copied, if for
+<see cref="!:UnityEditor.SerializedProperty.propertyType"></see> both properties have a value equal to<see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>
+and do not have a common base type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetChildren_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetChildren*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetChildren_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetChildren(SerializedProperty)">GetChildren(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Getting all the children <see cref="!:SerializedProperty"></see>.</p>
+  <div class="markdown level1 summary"><p>Getting all the children <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -193,7 +211,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p>Родительский <see cref="!:SerializedProperty"></see>.</p>
+        <td><p>Родительский <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -218,7 +236,7 @@
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetFieldInfoFromPropertyPath_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetFieldInfoFromPropertyPath*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetFieldInfoFromPropertyPath_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetFieldInfoFromPropertyPath(SerializedProperty)">GetFieldInfoFromPropertyPath(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Gives a lot of information related to reflection based on <see cref="!:SerializedProperty"></see>.</p>
+  <div class="markdown level1 summary"><p>Gives a lot of information related to reflection based on <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -238,7 +256,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p><see cref="!:SerializedProperty"></see> can be of any type</p>
+        <td><p><see cref="!:UnityEditor.SerializedProperty"></see> can be of any type</p>
 </td>
       </tr>
     </tbody>
@@ -255,7 +273,7 @@
       <tr>
         <td>(<span class="xref">FieldInfo</span> <span class="xref">field</span>, <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html">SerializedPropertyFieldType</a> <span class="xref">serializedPropertyFieldType</span>, <span class="xref">int</span>? <span class="xref">indexArrayElement</span>, <span class="xref">object</span> <span class="xref">parentObject</span>, <span class="xref">object</span> <span class="xref">currentObject</span>)</td>
         <td><p>Tuple elements:</p>
-<ul><li> <see cref="!:FieldInfo"></see> at <see cref="!:SerializedProperty"></see>. </li><li> <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html">SerializedPropertyFieldType</a> — additional information about property. </li><li> Index in the array if <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html">SerializedPropertyFieldType</a> equals <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html#Paulsams_MicsUtils_SerializedPropertyFieldType_ArrayElement">ArrayElement</a>. </li><li> Parent object. </li><li> Object received from <see cref="!:SerializedProperty"></see>. </li></ul>
+<ul><li> <span class="xref">System.Reflection.FieldInfo</span> at <see cref="!:UnityEditor.SerializedProperty"></see>. </li><li> <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html">SerializedPropertyFieldType</a> — additional information about property. </li><li> Index in the array if <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html">SerializedPropertyFieldType</a> equals <a class="xref" href="Paulsams.MicsUtils.SerializedPropertyFieldType.html#Paulsams_MicsUtils_SerializedPropertyFieldType_ArrayElement">ArrayElement</a>. </li><li> Parent object. </li><li> Object received from <see cref="!:UnityEditor.SerializedProperty"></see>. </li></ul>
 </td>
       </tr>
     </tbody>
@@ -264,7 +282,7 @@
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetManagedReferenceFieldType_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetManagedReferenceFieldType*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetManagedReferenceFieldType_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetManagedReferenceFieldType(SerializedProperty)">GetManagedReferenceFieldType(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Gives field <see cref="!:Type"></see> to <see cref="!:SerializedProperty"></see> if the type is equal to <see cref="!:SerializedPropertyType.ManagedReference"></see>.</p>
+  <div class="markdown level1 summary"><p>Gives field <span class="xref">System.Type</span> to <see cref="!:UnityEditor.SerializedProperty"></see> if the type is equal to <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -284,7 +302,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p>The property type is assumed to be <see cref="!:SerializedPropertyType.ManagedReference"></see>.</p>
+        <td><p>The property type is assumed to be <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -304,11 +322,27 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>If the type <see cref="!:UnityEditor.SerializedProperty"></see> is not equal to <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetManagedReferenceFullType_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetManagedReferenceFullType*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetManagedReferenceFullType_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetManagedReferenceFullType(SerializedProperty)">GetManagedReferenceFullType(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Gives this object <see cref="!:Type"></see> to <see cref="!:SerializedProperty"></see> if the type is equal to <see cref="!:SerializedPropertyType.ManagedReference"></see>.</p>
+  <div class="markdown level1 summary"><p>Gives this object <span class="xref">System.Type</span> to <see cref="!:UnityEditor.SerializedProperty"></see> if the type is equal to <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -328,7 +362,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p>The property type is assumed to be <see cref="!:SerializedPropertyType.ManagedReference"></see>.</p>
+        <td><p>The property type is assumed to be <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -345,6 +379,22 @@
       <tr>
         <td><span class="xref">Type</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>If the type <see cref="!:UnityEditor.SerializedProperty"></see> is not equal to <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -372,7 +422,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p>The property type is assumed to be <see cref="!:SerializedPropertyType.ManagedReference"></see>.</p>
+        <td><p>The property type is assumed to be <see cref="!:UnityEditor.SerializedPropertyType.ManagedReference"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -396,8 +446,8 @@
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetParentProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetParentProperty*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetParentProperty_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetParentProperty(SerializedProperty)">GetParentProperty(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Получение родительского <see cref="!:SerializedProperty"></see>.</p>
-<p>IMPORTNANT: will not work if <see cref="!:SerializedProperty"></see> - it returns <see cref="!:SerializedProperty.isArray"></see> true. </p>
+  <div class="markdown level1 summary"><p>Получение родительского <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
+<p>IMPORTNANT: will not work if <see cref="!:UnityEditor.SerializedProperty"></see> - it returns <see cref="!:UnityEditor.SerializedProperty.isArray"></see> true. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -417,7 +467,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p><see cref="!:SerializedProperty"></see> from which the parent is taken.</p>
+        <td><p><see cref="!:UnityEditor.SerializedProperty"></see> from which the parent is taken.</p>
 </td>
       </tr>
     </tbody>
@@ -433,7 +483,7 @@
     <tbody>
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
-        <td><p>Parent <see cref="!:SerializedProperty"></see>.</p>
+        <td><p>Parent <see cref="!:UnityEditor.SerializedProperty"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -442,7 +492,7 @@
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetTypeObjectReference_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetTypeObjectReference*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetTypeObjectReference_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetTypeObjectReference(SerializedProperty)">GetTypeObjectReference(SerializedProperty)</h4>
-  <div class="markdown level1 summary"><p>Gives UnityEgine.Object <see cref="!:Type"></see> to <see cref="!:SerializedProperty"></see> if the type is equal to <see cref="!:SerializedPropertyType.ObjectReference"></see>.</p>
+  <div class="markdown level1 summary"><p>Gives UnityEgine.Object <span class="xref">System.Type</span> to <see cref="!:UnityEditor.SerializedProperty"></see> if the type is equal to <see cref="!:UnityEditor.SerializedPropertyType.ObjectReference"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -462,7 +512,7 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p>The property type is assumed to be <see cref="!:SerializedPropertyType.ObjectReference"></see>.</p>
+        <td><p>The property type is assumed to be <see cref="!:UnityEditor.SerializedPropertyType.ObjectReference"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -482,12 +532,28 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>If the type <see cref="!:UnityEditor.SerializedProperty"></see> is not equal to <see cref="!:UnityEditor.SerializedPropertyType.ObjectReference"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetValueFromPropertyPath_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetValueFromPropertyPath*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_GetValueFromPropertyPath_SerializedProperty_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.GetValueFromPropertyPath(SerializedProperty)">GetValueFromPropertyPath(SerializedProperty)</h4>
   <div class="markdown level1 summary"><p>Get an object through reflection on property path.
-Works like <see cref="!:SerializedProperty.boxedValue"></see> in new versions of the engine.</p>
+Works like <see cref="!:UnityEditor.SerializedProperty.boxedValue"></see> in new versions of the engine.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -507,7 +573,7 @@ Works like <see cref="!:SerializedProperty.boxedValue"></see> in new versions of
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p><see cref="!:SerializedProperty"></see> can be of any type.</p>
+        <td><p><see cref="!:UnityEditor.SerializedProperty"></see> can be of any type.</p>
 </td>
       </tr>
     </tbody>
@@ -532,7 +598,7 @@ Works like <see cref="!:SerializedProperty.boxedValue"></see> in new versions of
   <a id="Paulsams_MicsUtils_SerializedPropertyExtensions_SetValueFromPropertyPath_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.SetValueFromPropertyPath*"></a>
   <h4 id="Paulsams_MicsUtils_SerializedPropertyExtensions_SetValueFromPropertyPath_SerializedProperty_System_Object_" data-uid="Paulsams.MicsUtils.SerializedPropertyExtensions.SetValueFromPropertyPath(SerializedProperty,System.Object)">SetValueFromPropertyPath(SerializedProperty, object)</h4>
   <div class="markdown level1 summary"><p>Sets the value using reflection on property path.
-Works like <see cref="!:SerializedProperty.boxedValue"></see> in new versions of the engine.</p>
+Works like <see cref="!:UnityEditor.SerializedProperty.boxedValue"></see> in new versions of the engine.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -552,14 +618,30 @@ Works like <see cref="!:SerializedProperty.boxedValue"></see> in new versions of
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td><p><see cref="!:SerializedProperty"></see> can be of any type,
-except <see cref="!:SerializedPropertyType.ArraySize"></see>.</p>
+        <td><p><see cref="!:UnityEditor.SerializedProperty"></see> can be of any type,
+except <see cref="!:UnityEditor.SerializedPropertyType.ArraySize"></see>.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">object</span></td>
         <td><span class="parametername">value</span></td>
         <td><p>The object that will be set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>Does not support setting array size.</p>
 </td>
       </tr>
     </tbody>
