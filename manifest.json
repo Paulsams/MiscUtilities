@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "/home/runner/work/MiscUtilities/MiscUtilities",
+  "source_base_path": "/home/runner/work/MiscUtilities/MiscUtilities/Documentation~",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.FilterKeys.html",
-          "hash": "yAHpNvzJ2WMTMt64I8cML/LeiABkrPaF9n1ENIelICg="
+          "hash": "OVvxrolVjka2WcH81ZhZ4mzUBDB4pSUVTArsw5clAF4="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.html",
-          "hash": "OBHhEHCMkAGDr8UHGgU/zoXiXwgHZ7FpcyH9iZylVzA="
+          "hash": "TCz3z1Iez33IPa5Q7Ph555unwPIChl/Z0rIpkcVHtBk="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.FileCreateInfo.html",
-          "hash": "O4DKODYXJ+yVPvCWcNYjPMgq2JRvaj2rQTwQ9bPZJ/4="
+          "hash": "Wrs3qbda/S2CFlUOmABNXqTllv2xWdKbHhwEP+K70PI="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.InserterCode.html",
-          "hash": "JWt7jme9mEKEDPfmKoIHb1uD85eFLWV5SC4YJtbcYO8="
+          "hash": "S9VtpFbw5+wWopNA2pryikHrOYlTXhQlBxUW6cR3Xao="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.html",
-          "hash": "Qwgfgt/0IccCczjIQZhMon0uvu1OjJDrQER5k4F3L34="
+          "hash": "mRcvOvf4mYpBzfR2qxFvk5ehlxuTK5B2ws8ehY2d87A="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.html",
-          "hash": "1Js1xzhHC542bze+OV8RLZqeJDle9bRqEP7tLxLUQkE="
+          "hash": "AeE3ca0uTSviobDsWwvRaSRT7BQ8iLeBahkgnTL6BXc="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.CollectionExtensions.html",
-          "hash": "kuRY5GwXfwXB2h+Ab76F6pRCkh/yVsWAhz39jq2BuxY="
+          "hash": "f309XeKzLKdKQMdvHwUAyHomsYXwNKh3MDFPz3GivLE="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.DictionaryExtensions.html",
-          "hash": "W360fYwfPNtTxMzbmd9U/H3IJ2isWTRPzUO2xebcZc8="
+          "hash": "FmPlJaGhdZE7JG6oqTZaUMYQyuO/523kjoKPDj+V5KE="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.EditorWindowUtility.html",
-          "hash": "v1+S3E4S2U3Tk3QLw7nLEfv+fYEK+J5nIKpmEpuiQkQ="
+          "hash": "yM032tB2YjGrsVRaK/VeOKa7Q/DJk/XHRz+DvPLUGJM="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.GameObjectLayer.html",
-          "hash": "w5iGyyzw4kdl/NkfXp4OOldGzUHNt8bUTLeAMjB4+UI="
+          "hash": "K9jcOud9rNbMcf+OExihrlVnr9nGsPXr/CRKvt3CzF0="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.GameObjectLayerDrawer.html",
-          "hash": "+KUEDgtb9hXu/QMwxyd4P2ul56bnkA/pXRmPybA3t1E="
+          "hash": "NM74TQ4kdGEMmut22EoEPfXK8TYbj6/If7+R8biu7+o="
         }
       },
       "is_incremental": false,
@@ -150,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.IgnoreAttribute.html",
-          "hash": "9FZbIBySWEux09/6uFR0NA96aYoNX2b+qcmlMtPz+YI="
+          "hash": "ROCEZET4EpvWlokdgYqsVwIT1gN62A7pipl+umpVAtU="
         }
       },
       "is_incremental": false,
@@ -162,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.IgnoreAttributeDrawer.html",
-          "hash": "ubSIbaV5MLRRaDR2ox56aizH6l/AX7woPTwvfBjVhKQ="
+          "hash": "S4VmnZsiNQgL/AjMSNnPqcKNJ/1gJmLeCBjX8dMaiX8="
         }
       },
       "is_incremental": false,
@@ -174,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ListExtensions.html",
-          "hash": "nsvvwpBf0ZMl6I1iEo+rVLmW6gEVpmG1ZEPZN5QDnR0="
+          "hash": "l8TBjMHLBPhHWtP7uVs4Fk2WnV1zX2ZPVG6weFkVehU="
         }
       },
       "is_incremental": false,
@@ -186,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.Math2DUtility.html",
-          "hash": "i2cfkV84oVVdzvzDS6BbugrnuOglt/P8k7GPjcdn56M="
+          "hash": "G6PkFW9AVPwN7nPKv94thA9SQAr+klTAc6pA74W/3P0="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.PhysicsUtilities.html",
-          "hash": "qOo7pUAAR+MzmmoTT/lUhcuUe8xKHNXzDvz3HyuvZW4="
+          "hash": "f6dkavQvNlZXbN3gX1rSTIo4+I5/h3dE3AU+8nGt1Is="
         }
       },
       "is_incremental": false,
@@ -210,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ReflectionExtensions.html",
-          "hash": "VeT7N+iOHlFNLVcJUyN5z3lVKslSnb0KRAlPwOn/Fw8="
+          "hash": "1G9NRfTsEfDQg/i+Xotlo7VOYqineZA/VMOqdAIgOMM="
         }
       },
       "is_incremental": false,
@@ -222,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ReflectionUtilities.html",
-          "hash": "emP+PcyhZxoBsRCNXZjTadP5WCUYPYiRL10mKMZ9Ins="
+          "hash": "xOUH4ZJjBrvkiMXzrfYE6QJOcDeKXXoJ4lfOnviz01s="
         }
       },
       "is_incremental": false,
@@ -234,7 +234,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SceneUtilities.html",
-          "hash": "7XCEs+DXUjxKQ6Wuf5UXQ4d7Dg4y/RguhofBKfIjZJY="
+          "hash": "eE8kSl050yy8FS8UZuFLg9qwrkxrLqWZxF7ForL3Ziw="
         }
       },
       "is_incremental": false,
@@ -246,7 +246,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyExtensions.html",
-          "hash": "ux8rp+9mo2qyJksD0k6E7YGOxrF1sE6r16as9oeA6QI="
+          "hash": "dusGoI+cWzqQ7yIExYJ5kFFRHVG3Fruq0P9tySUJ+GY="
         }
       },
       "is_incremental": false,
@@ -258,7 +258,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyFieldType.html",
-          "hash": "F2FoOtE/m4hOsu3jlSNfNtK+clngHhnnY06I8nmC/wI="
+          "hash": "i5ciGlMKm2QLlVFB7AtwtlnoMwLtN2zQD+v2TxGU0g4="
         }
       },
       "is_incremental": false,
@@ -270,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyRuntimeUtilities.html",
-          "hash": "98J9DZeAQIKrzxna4+qxMj+/c+y6HHg1TtWoGTxqSug="
+          "hash": "YtmAdJVVCtWb/F9iNC/wSusxMu0W7GBokXwUEIcbHow="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyUtilities.html",
-          "hash": "knsTDCRYeY/4qMqYyjRy1Uv9p9VXPV+dOYfaj6sFnYs="
+          "hash": "k6jheFW8aRbaNrQ6DCF/8fScA5zChO9axn79A+og59M="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttribute.html",
-          "hash": "+B6YuYJhXQLx6tlJ1/TXxNyshdNy23c8Mvsx/sXJyxI="
+          "hash": "6oHvjWmGG5UGTSv5bOU5pnz07S4zW99oufZkycn4G/o="
         }
       },
       "is_incremental": false,
@@ -306,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttributeDrawer.html",
-          "hash": "3mixNy3smI4z3vUVzDaD5DVqnBT2MX4cjJzXwwORUwo="
+          "hash": "lBEjACfzSTtvYAS1Ms6J72kl2rr/El00WK7dvVL/2KA="
         }
       },
       "is_incremental": false,
@@ -318,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.StringExtensions.html",
-          "hash": "+ldocAjdC/evitfhws+byhZfDPAtHgNtCn+P1Q0mhRU="
+          "hash": "hoPM00tx4fD3Up/PlpeLUkmtLDAa/bB6RcS5jQxqnl8="
         }
       },
       "is_incremental": false,
@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.VisualElementsUtilities.html",
-          "hash": "6OJD3/SryTI54VY4Z+/dGiCU4soQ00vvHgNjjcRMPFg="
+          "hash": "mjpA/vocPjOTswHQiJUtKXjO0kjzPFfhQfE0szp+bLU="
         }
       },
       "is_incremental": false,
@@ -342,7 +342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.html",
-          "hash": "d4MjrOY+53Itp/rfObY0mWN8q4TTMQdoq1NUnotCBTA="
+          "hash": "MFJpmyK2Jy1PClL1HHa7qt6ok5uk3FU5AWizK3Pc2Go="
         }
       },
       "is_incremental": false,
@@ -355,6 +355,18 @@
         ".html": {
           "relative_path": "api/toc.html",
           "hash": "rEKOkbcm7nHd1E6sVj1nQLzmB6Lcq6r+Ibtt91iLQtk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "nGvhxN8CkxCE2+31hkcrJbpDBsOUzWNJhSmJRrBoisw="
         }
       },
       "is_incremental": false,
