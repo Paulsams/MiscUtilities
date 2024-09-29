@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.html",
-          "hash": "w23FAZdloTdmzEN7pSLRnk6pOAf5HGCjqIhPHMQjq74="
+          "hash": "EB5GCmhCVqh6ewcqYUO+dFFwNq7Tne7KJJvgmLO2lI0="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.EditorWindowUtility.html",
-          "hash": "F7kL8jnWN/BbvFiZhReCZRCg6vMuXFLzqLIADEhdTSw="
+          "hash": "3nArpNIsL/PEDgqQf+HQVyFC9Pkg/t7rP+PIsq9Gaw4="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.GameObjectLayer.html",
-          "hash": "K9jcOud9rNbMcf+OExihrlVnr9nGsPXr/CRKvt3CzF0="
+          "hash": "U1tEYl/w9GFqD3HrreO4G8sDqcfN9574Ej8j0vf0UQA="
         }
       },
       "is_incremental": false,
@@ -206,6 +206,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ReadonlyFieldAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ReadonlyFieldAttribute.html",
+          "hash": "AteGajrrUP1IzZgEjQyBWv1ePVRSwExXN/d8bfYwuWk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.html",
+          "hash": "owHhnThD05+O/i7fHpk774prgAuTKzAmBHjDe1q09QU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Paulsams.MicsUtils.ReflectionExtensions.yml",
       "output": {
         ".html": {
@@ -246,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyExtensions.html",
-          "hash": "v8pO6xDekRO5/hTurodDD8GLg4BFdqEo3neNwf/HChg="
+          "hash": "ljKL1mE1dDKsZUSvI6t0dN0IQ6dso8SWcC8HSxLt86I="
         }
       },
       "is_incremental": false,
@@ -282,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyUtilities.html",
-          "hash": "k6jheFW8aRbaNrQ6DCF/8fScA5zChO9axn79A+og59M="
+          "hash": "p1f5IYUXnYmNUwK/aZD+xKWu9Bnhz0aRH/OtHulwhnc="
         }
       },
       "is_incremental": false,
@@ -294,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttribute.html",
-          "hash": "6oHvjWmGG5UGTSv5bOU5pnz07S4zW99oufZkycn4G/o="
+          "hash": "3x9n/yc6QWg3O/ERw3QOkDJSp0rezNvEEqZ0C1GZE24="
         }
       },
       "is_incremental": false,
@@ -330,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.VisualElementsUtilities.html",
-          "hash": "ROOEIP9+Of13xAkforrh77UtvZMbG4AolEa4X7+fYw0="
+          "hash": "yQXZaohwfZrdkRoI5ZGNENpMVD7ivh3Ry9bIXXxFqbY="
         }
       },
       "is_incremental": false,
@@ -342,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Paulsams.MicsUtils.html",
-          "hash": "uSujFwSpwFKiwuFZwLNlFZLP5sAgeIYQMMH9JdKgrEA="
+          "hash": "iDyhutkpuJgwZ0Q/+fgRKx9ab70kdgUeY7QDy7v3nUg="
         }
       },
       "is_incremental": false,
@@ -354,7 +378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "rEKOkbcm7nHd1E6sVj1nQLzmB6Lcq6r+Ibtt91iLQtk="
+          "hash": "pXv4Py+2D55xWqmvw2ny47x4vjioS/5vuLJHpPKPx64="
         }
       },
       "is_incremental": false,
@@ -405,7 +429,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 28,
+          "total_file_count": 30,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
