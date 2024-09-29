@@ -1,8 +1,392 @@
 {
   "homepages": [],
   "source_base_path": "/home/runner/work/MiscUtilities/MiscUtilities",
-  "files": [],
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.FilterKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.FilterKeys.html",
+          "hash": "yAHpNvzJ2WMTMt64I8cML/LeiABkrPaF9n1ENIelICg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.AssetDatabaseUtilities.html",
+          "hash": "OBHhEHCMkAGDr8UHGgU/zoXiXwgHZ7FpcyH9iZylVzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.FileCreateInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.FileCreateInfo.html",
+          "hash": "O4DKODYXJ+yVPvCWcNYjPMgq2JRvaj2rQTwQ9bPZJ/4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.InserterCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.InserterCode.html",
+          "hash": "JWt7jme9mEKEDPfmKoIHb1uD85eFLWV5SC4YJtbcYO8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.BaseCodeGeneratorFromTemplate.html",
+          "hash": "Qwgfgt/0IccCczjIQZhMon0uvu1OjJDrQER5k4F3L34="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.CodeGeneration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.CodeGeneration.html",
+          "hash": "1Js1xzhHC542bze+OV8RLZqeJDle9bRqEP7tLxLUQkE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.CollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.CollectionExtensions.html",
+          "hash": "kuRY5GwXfwXB2h+Ab76F6pRCkh/yVsWAhz39jq2BuxY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.DictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.DictionaryExtensions.html",
+          "hash": "W360fYwfPNtTxMzbmd9U/H3IJ2isWTRPzUO2xebcZc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.EditorWindowUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.EditorWindowUtility.html",
+          "hash": "v1+S3E4S2U3Tk3QLw7nLEfv+fYEK+J5nIKpmEpuiQkQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.GameObjectLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.GameObjectLayer.html",
+          "hash": "w5iGyyzw4kdl/NkfXp4OOldGzUHNt8bUTLeAMjB4+UI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.GameObjectLayerDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.GameObjectLayerDrawer.html",
+          "hash": "+KUEDgtb9hXu/QMwxyd4P2ul56bnkA/pXRmPybA3t1E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.IgnoreAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.IgnoreAttribute.html",
+          "hash": "9FZbIBySWEux09/6uFR0NA96aYoNX2b+qcmlMtPz+YI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.IgnoreAttributeDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.IgnoreAttributeDrawer.html",
+          "hash": "ubSIbaV5MLRRaDR2ox56aizH6l/AX7woPTwvfBjVhKQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ListExtensions.html",
+          "hash": "nsvvwpBf0ZMl6I1iEo+rVLmW6gEVpmG1ZEPZN5QDnR0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.Math2DUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.Math2DUtility.html",
+          "hash": "i2cfkV84oVVdzvzDS6BbugrnuOglt/P8k7GPjcdn56M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.PhysicsUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.PhysicsUtilities.html",
+          "hash": "qOo7pUAAR+MzmmoTT/lUhcuUe8xKHNXzDvz3HyuvZW4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ReflectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ReflectionExtensions.html",
+          "hash": "8jUvXPLFTQ47UnbWMwFpRmKRi5MKtFnPIvh6DLbIK7A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ReflectionUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ReflectionUtilities.html",
+          "hash": "emP+PcyhZxoBsRCNXZjTadP5WCUYPYiRL10mKMZ9Ins="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.SceneUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.SceneUtilities.html",
+          "hash": "7XCEs+DXUjxKQ6Wuf5UXQ4d7Dg4y/RguhofBKfIjZJY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.SerializedPropertyExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyExtensions.html",
+          "hash": "ux8rp+9mo2qyJksD0k6E7YGOxrF1sE6r16as9oeA6QI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.SerializedPropertyFieldType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyFieldType.html",
+          "hash": "F2FoOtE/m4hOsu3jlSNfNtK+clngHhnnY06I8nmC/wI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.SerializedPropertyRuntimeUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyRuntimeUtilities.html",
+          "hash": "98J9DZeAQIKrzxna4+qxMj+/c+y6HHg1TtWoGTxqSug="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.SerializedPropertyUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.SerializedPropertyUtilities.html",
+          "hash": "knsTDCRYeY/4qMqYyjRy1Uv9p9VXPV+dOYfaj6sFnYs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttribute.html",
+          "hash": "+B6YuYJhXQLx6tlJ1/TXxNyshdNy23c8Mvsx/sXJyxI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttributeDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.ShowUnityObjectAttributeDrawer.html",
+          "hash": "3mixNy3smI4z3vUVzDaD5DVqnBT2MX4cjJzXwwORUwo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.StringExtensions.html",
+          "hash": "+ldocAjdC/evitfhws+byhZfDPAtHgNtCn+P1Q0mhRU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.VisualElementsUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.VisualElementsUtilities.html",
+          "hash": "6OJD3/SryTI54VY4Z+/dGiCU4soQ00vvHgNjjcRMPFg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Paulsams.MicsUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Paulsams.MicsUtils.html",
+          "hash": "d4MjrOY+53Itp/rfObY0mWN8q4TTMQdoq1NUnotCBTA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "rEKOkbcm7nHd1E6sVj1nQLzmB6Lcq6r+Ibtt91iLQtk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
   "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 28,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
     {
       "status": {
         "can_incremental": false,
@@ -14,5 +398,10 @@
       "processors": {}
     }
   ],
-  "version_info": {}
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
 }
