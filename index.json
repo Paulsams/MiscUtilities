@@ -138,5 +138,10 @@
     "href": "api/Paulsams.MicsUtils.VisualElementsUtilities.html",
     "title": "Class VisualElementsUtilities",
     "keywords": "Class VisualElementsUtilities Utilities associated with class: . Inheritance object VisualElementsUtilities Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: Paulsams.MicsUtils Assembly: cs.temp.dll.dll Syntax public static class VisualElementsUtilities Methods SetAlignedLabelFromFoldout(Foldout, out VisualElement, out VisualElement) Creates and returns a container to draw something at the level of the foldout itself, and also returns a checkmark. Declaration public static void SetAlignedLabelFromFoldout(Foldout foldout, out VisualElement containerOnSameRowWithToggle, out VisualElement checkmark) Parameters Type Name Description Foldout foldout Foldout element on which modifications are made. VisualElement containerOnSameRowWithToggle Container is in line with the foldout. VisualElement checkmark Checkmark in foldout."
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "",
+    "keywords": "TEST"
   }
 }
