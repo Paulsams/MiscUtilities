@@ -1,30 +1,32 @@
 using UnityEditor;
 using UnityEngine;
-using Paulsams.MicsUtils;
 
-[CustomPropertyDrawer(typeof(IgnoreAttribute))]
-public class IgnoreAttributeDrawer : PropertyDrawer
+namespace Paulsams.MicsUtils
 {
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(IgnoreAttribute))]
+    public class IgnoreAttributeDrawer : PropertyDrawer
     {
-        float height = 0f;
-        foreach (var childProperty in property.GetChildren())
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            height += EditorGUI.GetPropertyHeight(childProperty, true) + EditorGUIUtility.standardVerticalSpacing;
+            float height = 0f;
+            foreach (var childProperty in property.GetChildren())
+            {
+                height += EditorGUI.GetPropertyHeight(childProperty, true) + EditorGUIUtility.standardVerticalSpacing;
+            }
+
+            if (height > 0f)
+                height -= EditorGUIUtility.standardVerticalSpacing;
+
+            return height;
         }
 
-        if (height > 0f)
-            height -= EditorGUIUtility.standardVerticalSpacing;
-
-        return height;
-    }
-
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    {
-        foreach (var childProperty in property.GetChildren())
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            EditorGUI.PropertyField(position, childProperty, true);
-            position.y += EditorGUI.GetPropertyHeight(childProperty, true) + EditorGUIUtility.standardVerticalSpacing;
+            foreach (var childProperty in property.GetChildren())
+            {
+                EditorGUI.PropertyField(position, childProperty, true);
+                position.y += EditorGUI.GetPropertyHeight(childProperty, true) + EditorGUIUtility.standardVerticalSpacing;
+            }
         }
     }
 }

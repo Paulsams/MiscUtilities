@@ -1,0 +1,1 @@
+﻿I won't duplicate `README`, so you can go straight to the `Scripting API` at top of the page.

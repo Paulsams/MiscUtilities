@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(ReadonlyFieldAttribute))]
-public class ReadonlyFieldAttributeDrawer : PropertyDrawer
+namespace Paulsams.MicsUtils
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(ReadonlyFieldAttribute))]
+    public class ReadonlyFieldAttributeDrawer : PropertyDrawer
     {
-        var lastGUIState = GUI.enabled;
-        GUI.enabled = false;
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            var lastGUIState = GUI.enabled;
+            GUI.enabled = false;
 
-        EditorGUI.PropertyField(position, property, label);
+            EditorGUI.PropertyField(position, property, label);
 
-        GUI.enabled = lastGUIState;
+            GUI.enabled = lastGUIState;
+        }
     }
 }

@@ -3,13 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 using UnityEditor;
 
 namespace Paulsams.MicsUtils
 {
+    /// <summary>
+    /// Extension methods for class: <see cref="T:UnityEditor.SerializedProperty"/>.
+    /// </summary>
     public static class SerializedPropertyExtensions
     {
+        /// <summary>
+        /// Allows you to get a managedReferenceValue that does not depend on the engine version.
+        /// </summary>
+        /// <param name="property"> The property type is assumed to be <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>. </param>
+        /// <returns></returns>
         public static object GetManagedReferenceValueFromPropertyPath(this SerializedProperty property)
         {
 #if UNITY_2021_2_OR_NEWER
@@ -21,9 +28,23 @@ namespace Paulsams.MicsUtils
             return managedReferenceValue;
         }
 
+        /// <summary>
+        /// Get an object through reflection on property path.
+        /// Works like <see cref="P:UnityEditor.SerializedProperty.boxedValue"/> in new versions of the engine.
+        /// </summary>
+        /// <param name="property"> <see cref="T:UnityEditor.SerializedProperty"/> can be of any type. </param>
+        /// <returns></returns>
         public static object GetValueFromPropertyPath(this SerializedProperty property) =>
             GetFieldInfoFromPropertyPath(property).currentObject;
 
+        /// <summary>
+        /// Sets the value using reflection on property path.
+        /// Works like <see cref="P:UnityEditor.SerializedProperty.boxedValue"/> in new versions of the engine.
+        /// </summary>
+        /// <param name="property"> <see cref="T:UnityEditor.SerializedProperty"/> can be of any type,
+        /// except <see cref="F:UnityEditor.SerializedPropertyType.ArraySize"/>.</param>
+        /// <param name="value"> The object that will be set. </param>
+        /// <exception cref="T:System.InvalidOperationException"> Does not support setting array size. </exception>
         public static void SetValueFromPropertyPath(this SerializedProperty property, object value)
         {
             var fieldData = GetFieldInfoFromPropertyPath(property);
@@ -41,28 +62,56 @@ namespace Paulsams.MicsUtils
             }
         }
 
+        /// <summary>
+        /// Gives a lot of information related to reflection based on <see cref="T:UnityEditor.SerializedProperty"/>.
+        /// </summary>
+        /// <param name="property"> <see cref="T:UnityEditor.SerializedProperty"/> can be of any type </param>
+        /// <returns> Tuple elements:
+        /// <list type="bullet">
+        /// <item><description> <see cref="T:System.Reflection.FieldInfo"/> at <see cref="T:UnityEditor.SerializedProperty"/>. </description></item>
+        /// <item><description> <see cref="Paulsams.MicsUtils.SerializedPropertyFieldType"/> — additional information about property. </description></item>
+        /// <item><description> Index in the array if <see cref="T:Paulsams.MicsUtils.SerializedPropertyFieldType"/> equals <see cref="Paulsams.MicsUtils.SerializedPropertyFieldType.ArrayElement"/>. </description></item>
+        /// <item><description> Parent object. </description></item>
+        /// <item><description> Object received from <see cref="T:UnityEditor.SerializedProperty"/>. </description></item>
+        /// </list>
+        /// </returns>
         public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
             int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(
                 this SerializedProperty property) =>
             SerializedPropertyRuntimeUtilities.GetFieldInfoFromPropertyPath(
                 property.serializedObject.targetObject, property.propertyPath);
 
+        /// <summary>
+        /// Gives field <see cref="T:System.Type"/> to <see cref="T:UnityEditor.SerializedProperty"/> if the type is equal to <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>.
+        /// </summary>
+        /// <param name="property"> The property type is assumed to be <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>. </param>
+        /// <exception cref="T:System.InvalidOperationException"> If the type <see cref="T:UnityEditor.SerializedProperty"/> is not equal to <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>. </exception>
         public static Type GetManagedReferenceFieldType(this SerializedProperty property)
         {
             var fieldTypename = property.managedReferenceFieldTypename;
             if (string.IsNullOrEmpty(fieldTypename))
-                throw new Exception("ManagedReferenceFieldTypename is empty");
+                throw new InvalidOperationException("ManagedReferenceFieldTypename is empty");
             return SerializedPropertyUtilities.GetManagedReferenceType(fieldTypename);
         }
 
+        /// <summary>
+        /// Gives this object <see cref="T:System.Type"/> to <see cref="T:UnityEditor.SerializedProperty"/> if the type is equal to <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>.
+        /// </summary>
+        /// <param name="property"> The property type is assumed to be <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>. </param>
+        /// <exception cref="T:System.InvalidOperationException"> If the type <see cref="T:UnityEditor.SerializedProperty"/> is not equal to <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>. </exception>
         public static Type GetManagedReferenceFullType(this SerializedProperty property)
         {
             var fullTypename = property.managedReferenceFullTypename;
             if (string.IsNullOrEmpty(fullTypename))
-                throw new Exception("ManagedReferenceFieldTypename is empty");
+                throw new InvalidOperationException("ManagedReferenceFieldTypename is empty");
             return SerializedPropertyUtilities.GetManagedReferenceType(fullTypename);
         }
 
+        /// <summary>
+        /// Gives UnityEgine.Object <see cref="T:System.Type"/> to <see cref="T:UnityEditor.SerializedProperty"/> if the type is equal to <see cref="F:UnityEditor.SerializedPropertyType.ObjectReference"/>.
+        /// </summary>
+        /// <param name="property"> The property type is assumed to be <see cref="F:UnityEditor.SerializedPropertyType.ObjectReference"/>. </param>
+        /// <exception cref="T:System.InvalidOperationException"> If the type <see cref="T:UnityEditor.SerializedProperty"/> is not equal to <see cref="F:UnityEditor.SerializedPropertyType.ObjectReference"/>. </exception>
         public static Type GetTypeObjectReference(this SerializedProperty property)
         {
             if (property.propertyType != SerializedPropertyType.ObjectReference)
@@ -80,6 +129,11 @@ namespace Paulsams.MicsUtils
             return outputType;
         }
 
+        /// <summary>
+        /// Getting all the children <see cref="T:UnityEditor.SerializedProperty"/>.
+        /// </summary>
+        /// <param name="property"> Родительский <see cref="T:UnityEditor.SerializedProperty"/>. </param>
+        /// <returns> Iterator returning children. </returns>
         public static IEnumerable<SerializedProperty> GetChildren(this SerializedProperty property)
         {
             SerializedProperty currentProperty = property.Copy();
@@ -99,6 +153,12 @@ namespace Paulsams.MicsUtils
             }
         }
 
+        /// <summary>
+        /// Получение родительского <see cref="T:UnityEditor.SerializedProperty"/>.
+        /// <para>IMPORTNANT: will not work if <see cref="T:UnityEditor.SerializedProperty"/> - it returns <see cref="P:UnityEditor.SerializedProperty.isArray"/> true. </para>
+        /// </summary>
+        /// <param name="property"> <see cref="T:UnityEditor.SerializedProperty"/> from which the parent is taken. </param>
+        /// <returns> Parent <see cref="T:UnityEditor.SerializedProperty"/>. </returns>
         public static SerializedProperty GetParentProperty(this SerializedProperty property)
         {
             int dotIndex = property.propertyPath.Length - property.name.Length - 1;
@@ -109,6 +169,16 @@ namespace Paulsams.MicsUtils
             return property.serializedObject.FindProperty(parentPropertyPath);
         }
 
+        /// <summary>
+        /// Copies all data from one <see cref="T:UnityEditor.SerializedProperty"/> to another <see cref="T:UnityEditor.SerializedProperty"/>.
+        /// </summary>
+        /// <param name="source"> Where values come from. </param>
+        /// <param name="destination"> Where values are copied. </param>
+        /// <param name="applyWithIsUndo"> Применять ли <see cref="M:UnityEditor.SerializedObject.ApplyModifiedProperties"/> или <see cref="M:UnityEditor.SerializedObject.ApplyModifiedPropertiesWithoutUndo"/> </param>
+        /// <param name="additionally"> An optional delegate that sorts the copy value. If it returns false, then iteration through children does not occur either. </param>
+        /// <exception cref="T:System.InvalidOperationException"> May be thrown out if two properties cannot be copied, if for
+        /// <see cref="P:UnityEditor.SerializedProperty.propertyType"/> both properties have a value equal to <see cref="F:UnityEditor.SerializedPropertyType.ManagedReference"/>
+        /// and do not have a common base type. </exception>
         public static void CopyValueToOtherProperty(this SerializedProperty source, SerializedProperty destination,
             bool applyWithIsUndo, Func<SerializedProperty, SerializedProperty, bool> additionally = null)
         {
@@ -118,7 +188,7 @@ namespace Paulsams.MicsUtils
                 TypeCache.GetTypesDerivedFrom(destination.GetFieldInfoFromPropertyPath().field.FieldType)
                     .Contains(source.GetValueFromPropertyPath().GetType()) == false
                )
-                throw new Exception($"{source.type} --- {destination.type}");
+                throw new InvalidOperationException($"{source.type} --- {destination.type}");
 
             Iterator(source, destination, applyWithIsUndo, additionally);
             if (applyWithIsUndo)

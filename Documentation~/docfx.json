@@ -1,0 +1,58 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+            "**/*.cs"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "file": "libs/UnityEngine.dll"
+        },
+        {
+          "file": "libs/UnityEditor.dll"
+        }
+      ],
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "toc.yml",
+          "index.md"
+        ]
+      },
+      {
+        "src": "api",
+        "files": [
+          "*.yml"
+        ],
+        "dest": "api"
+      }
+    ],
+    "dest": "../_site",
+    "globalMetadata": {
+      "_enableSearch": true
+    },
+    "xref": [
+      "https://normanderwan.github.io/UnityXrefMaps/xrefmap.yml",
+      "https://learn.microsoft.com/en-us/dotnet/xrefmap.yml"
+    ],
+    "template": [
+      "default"
+    ]
+  }
+}

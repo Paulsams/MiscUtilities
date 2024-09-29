@@ -1,24 +1,27 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(GameObjectLayer))]
-public class GameObjectLayerDrawer : PropertyDrawer
+namespace Paulsams.MicsUtils
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(GameObjectLayer))]
+    public class GameObjectLayerDrawer : PropertyDrawer
     {
-        EditorGUI.BeginProperty(position, label, property);
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            EditorGUI.BeginProperty(position, label, property);
 
-        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+            position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
-        var indent = EditorGUI.indentLevel;
-        EditorGUI.indentLevel = 0;
+            var indent = EditorGUI.indentLevel;
+            EditorGUI.indentLevel = 0;
 
-        var layerProperty = property.FindPropertyRelative("_layer");
+            var layerProperty = property.FindPropertyRelative("_layer");
 
-        layerProperty.intValue = EditorGUI.LayerField(position, layerProperty.intValue);
+            layerProperty.intValue = EditorGUI.LayerField(position, layerProperty.intValue);
 
-        EditorGUI.indentLevel = indent;
+            EditorGUI.indentLevel = indent;
 
-        EditorGUI.EndProperty();
+            EditorGUI.EndProperty();
+        }
     }
 }

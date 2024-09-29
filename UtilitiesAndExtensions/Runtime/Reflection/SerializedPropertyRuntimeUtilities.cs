@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace Paulsams.MicsUtils
 {
+    /// <summary>
+    /// Auxiliary enam to separate parts of the array from the other.
+    /// </summary>
     public enum SerializedPropertyFieldType
     {
         None,
@@ -12,8 +15,26 @@ namespace Paulsams.MicsUtils
         Other,
     }
 
+    /// <summary>
+    /// Provides methods for using reflection to repeat certain logic of <see cref="T:UnityEditor.SerializedProperty"/> at runtime.
+    /// </summary>
     public static class SerializedPropertyRuntimeUtilities
     {
+        /// <summary>
+        /// Gives a lot of information related to reflection based on <see cref="P:UnityEditor.SerializedProperty.propertyPath"/>.
+        /// </summary>
+        /// <param name="targetObject"> object from which the traversal will occur. </param>
+        /// <param name="propertyPath"> path that should have semantics completely similar <see cref="P:UnityEditor.SerializedProperty.propertyPath"/>. </param>
+        /// <returns> Tuple elements:
+        /// <list type="bullet">
+        /// <item><description> <see cref="T:System.Reflection.FieldInfo"/> at end object. </description></item>
+        /// <item><description> <see cref="T:Paulsams.MicsUtils.SerializedPropertyFieldType"/> — additional information about property. </description></item>
+        /// <item><description> Index in the array if <see cref="T:Paulsams.MicsUtils.SerializedPropertyFieldType"/> equals <see cref="Paulsams.MicsUtils.SerializedPropertyFieldType.ArrayElement"/>. </description></item>
+        /// <item><description> Parent object. </description></item>
+        /// <item><description> Object received from <paramref name="propertyPath"/> starting from <paramref name="targetObject"/>. </description></item>
+        /// </list>
+        /// </returns>
+        /// <exception cref="T:System.InvalidOperationException"></exception>
         public static (FieldInfo field, SerializedPropertyFieldType serializedPropertyFieldType,
             int? indexArrayElement, object parentObject, object currentObject) GetFieldInfoFromPropertyPath(
                 object targetObject, string propertyPath)
@@ -80,6 +101,10 @@ namespace Paulsams.MicsUtils
             return (fieldInfo, serializedPropertyFieldType, indexArrayElement, parentObject, currentObject);
         }
 
+        /// <summary>
+        /// Getting index from <see cref="P:UnityEditor.SerializedProperty.propertyPath"/>, if <see cref="T:UnityEditor.SerializedProperty"/> along this path - it returns <see cref="P:UnityEditor.SerializedProperty.isArray"/> true..
+        /// </summary>
+        /// <param name="dataArray"> string representing <see cref="P:UnityEditor.SerializedProperty.propertyPath"/>. </param>
         public static int GetIndexFromArrayProperty(string dataArray)
         {
             int startIndex = dataArray.IndexOf('[') + 1;

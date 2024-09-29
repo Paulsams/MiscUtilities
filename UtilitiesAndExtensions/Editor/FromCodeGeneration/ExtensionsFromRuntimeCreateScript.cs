@@ -2,7 +2,10 @@ using System.Text;
 
 namespace Paulsams.MicsUtils.CodeGeneration
 {
-    public static class ExtensionsFromCodeGeneration
+    /// <summary>
+    /// Extensions class for creating scripts in runtime for my template code generation.
+    /// </summary>
+    internal static class ExtensionsFromCodeGeneration
     {
         public static void Append(this StringBuilder stringBuilder, string text, int tabIndex)
         {

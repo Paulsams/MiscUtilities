@@ -6,8 +6,27 @@ using UnityEngine.SceneManagement;
 
 namespace Paulsams.MicsUtils
 {
+    /// <summary>
+    /// Utilities associated with class: <see cref="T:UnityEditor.AssetDatabase"/>.
+    /// </summary>
     public static class AssetDatabaseUtilities
     {
+        /// <summary>
+        /// A class that contains keys for searching using a method: <see cref="M:UnityEditor.AssetDatabase.FindAssets(System.String)"/>.
+        /// </summary>
+        public static class FilterKeys
+        {
+            public const string Scenes = "t:scene";
+            public const string Prefabs = "t:prefab";
+            public const string ScriptableObjects = "t:ScriptableObject";
+        }
+
+        /// <summary>
+        /// Saves the current context of open scenes, lazily opens all scenes as they are fed out using an iterator,
+        /// and restores the context at the end.
+        /// </summary>
+        /// <returns> Iterator all scenes
+        /// (after all, to get GO from a scene, you need to open it, unfortunately). </returns>
         public static IEnumerable<Scene> GetAllScenesInAssets()
         {
             var oldScenesSetup = EditorSceneManager.GetSceneManagerSetup();
@@ -19,7 +38,7 @@ namespace Paulsams.MicsUtils
                     Selection.activeGameObject.GetLocalIdentifierInFile()
                 );
 
-            foreach (var pathToScene in GetAssetsPathsFromFilenameExtension("unity")
+            foreach (var pathToScene in AssetDatabase.FindAssets(FilterKeys.Scenes)
                          .Where(path => path.StartsWith("Assets/")))
             {
                 Scene scene = EditorSceneManager.OpenScene(pathToScene, OpenSceneMode.Single);
@@ -36,18 +55,6 @@ namespace Paulsams.MicsUtils
                             gameObject.GetLocalIdentifierInFile() == oldSelectedObject.Value.identifierInFile)
                     : null;
             }
-        }
-
-        public static IEnumerable<string> GetPathToAllPrefabsAssets() =>
-            GetAssetsPathsFromFilenameExtension("prefab");
-
-        public static IEnumerable<string> GetAssetsPathsFromFilenameExtension(string filenameExtension)
-        {
-            string[] paths = AssetDatabase.GetAllAssetPaths();
-
-            foreach (string path in paths)
-                if (path.EndsWith(filenameExtension))
-                    yield return path;
         }
     }
 }

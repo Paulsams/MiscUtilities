@@ -1,11 +1,17 @@
 using System;
 using System.Reflection;
-using UnityEngine;
 
 namespace Paulsams.MicsUtils
 {
+    /// <summary>
+    /// Utilities associated with class: <see cref="T:UnityEditor.SerializedProperty"/>.
+    /// </summary>
     public static class SerializedPropertyUtilities
     {
+        /// <summary>
+        /// Gives <see cref="T:Type"/> to from <see cref="P:UnityEditor.SerializedProperty.managedReferenceFullTypename"/>.
+        /// </summary>
+        /// <param name="typename"> <see cref="P:UnityEditor.SerializedProperty.managedReferenceFullTypename"/> </param>
         public static Type GetManagedReferenceType(string typename)
         {
             var splitFieldTypename = typename.Split(' ');

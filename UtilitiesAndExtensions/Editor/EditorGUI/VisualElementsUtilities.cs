@@ -3,8 +3,17 @@ using UnityEngine.UIElements;
 
 namespace Paulsams.MicsUtils
 {
+    /// <summary>
+    /// Utilities associated with class: <see cref="T:UnityEngine.UIElements.VisualElement"/>.
+    /// </summary>
     public static class VisualElementsUtilities
     {
+        /// <summary>
+        /// Creates and returns a container to draw something at the level of the foldout itself, and also returns a checkmark.
+        /// </summary>
+        /// <param name="foldout"> Foldout element on which modifications are made. </param>
+        /// <param name="containerOnSameRowWithToggle"> Container is in line with the foldout. </param>
+        /// <param name="checkmark"> Checkmark in foldout. </param>
         public static void SetAlignedLabelFromFoldout(Foldout foldout, out VisualElement containerOnSameRowWithToggle, out VisualElement checkmark)
         {
             var toggle = foldout.Q<Toggle>();

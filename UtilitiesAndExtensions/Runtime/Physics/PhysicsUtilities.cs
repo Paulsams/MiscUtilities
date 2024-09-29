@@ -3,8 +3,14 @@ using UnityEngine;
 
 namespace Paulsams.MicsUtils
 {
-    public static class PhysicsMyUtilities
+    /// <summary>
+    /// Utilities related to 3D Physics.
+    /// </summary>
+    public static class PhysicsUtilities
     {
+        /// <summary>
+        /// Allows you to mutually ignore collisions between two collections.
+        /// </summary>
         public static void IgnoreCollision(IList<Collider> collidersFirst, IList<Collider> collidersSecond, bool state)
         {
             for (int i = 0; i < collidersFirst.Count; ++i)
