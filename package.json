@@ -1,6 +1,6 @@
 {
   "name": "com.paulsams.misc-utilities",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "displayName": "MiscUtilities",
   "description": "Different utility classes for my other packages to work with.",
   "documentationUrl": "https://github.com/Paulsams/MiscUtilities/blob/master/README.md",

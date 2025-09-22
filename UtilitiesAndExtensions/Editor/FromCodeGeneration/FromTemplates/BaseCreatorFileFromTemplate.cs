@@ -248,9 +248,16 @@ namespace Paulsams.MicsUtils.CodeGeneration
                                 script.AppendLine(linesInValue[0]);
 
                                 for (int j = 1; j < linesInValue.Length - 1; ++j)
-                                    script.AppendLine(linesInValue[j], tabIndex);
+                                {
+                                    if (linesInValue[j] == string.Empty)
+                                        script.AppendLine();
+                                    else
+                                        script.AppendLine(linesInValue[j], tabIndex);
+                                }
 
-                                script.Append(linesInValue[linesInValue.Length - 1], tabIndex);
+                                var endLine = linesInValue[linesInValue.Length - 1];
+                                if (endLine != string.Empty)
+                                    script.Append(endLine, tabIndex);
                             }
                         }
 

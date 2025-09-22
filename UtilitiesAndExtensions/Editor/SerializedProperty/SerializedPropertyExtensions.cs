@@ -161,6 +161,16 @@ namespace Paulsams.MicsUtils
         /// <returns> Parent <see cref="T:UnityEditor.SerializedProperty"/>. </returns>
         public static SerializedProperty GetParentProperty(this SerializedProperty property)
         {
+            if (property.propertyType == SerializedPropertyType.ArraySize)
+            {
+                return property.serializedObject.FindProperty(property.propertyPath
+                    .Remove(property.propertyPath.Length - ".Array.size".Length));
+            }
+            if (property.propertyPath[property.propertyPath.Length - 1] == ']')
+            {
+                return property.serializedObject.FindProperty(property.propertyPath
+                    .Remove(property.propertyPath.LastIndexOf(".Array.data[")));
+            }
             int dotIndex = property.propertyPath.Length - property.name.Length - 1;
             if (dotIndex < 0)
                 return null;

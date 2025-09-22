@@ -1,11 +1,25 @@
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Paulsams.MicsUtils
 {
     [CustomPropertyDrawer(typeof(IgnoreAttribute))]
     public class IgnoreAttributeDrawer : PropertyDrawer
     {
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
+        {
+            var container = new VisualElement();
+            foreach (var childProperty in property.GetChildren())
+            {
+                var propertyField = new PropertyField();
+                propertyField.BindProperty(childProperty);
+                container.Add(propertyField);
+            }
+            return container;
+        }
+        
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             float height = 0f;

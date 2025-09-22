@@ -20,37 +20,43 @@ namespace Paulsams.MicsUtils
             };
             VisualElementsUtilities.SetAlignedLabelFromFoldout(foldout, out VisualElement containerOnSameRowWithToggle,
                 out VisualElement checkmark);
-        
+
             void UpdateCheckmark() =>
                 checkmark.style.visibility = property.objectReferenceValue
                     ? Visibility.Visible
                     : Visibility.Hidden;
 
-            UpdateCheckmark();
+            void UpdateChildren()
+            {
+                foldout.Clear();
+                var serializedObject = new SerializedObject(property.objectReferenceValue);
+                var iterator = serializedObject.GetIterator();
+                iterator.Next(true);
+                while (iterator.NextVisible(false))
+                {
+                    var propertyField = new PropertyField();
+                    propertyField.BindProperty(iterator);
+                    foldout.Add(propertyField);
+                }
+            }
+
             foldout.RegisterValueChangedCallback(callback => property.isExpanded = callback.newValue);
             container.Add(foldout);
 
             var objectField = new ObjectField(null);
             objectField.objectType = property.GetTypeObjectReference();
             objectField.BindProperty(property);
-            objectField.RegisterValueChangedCallback(_ => UpdateCheckmark());
+            objectField.RegisterValueChangedCallback(_ =>
+            {
+                UpdateCheckmark();
+                UpdateChildren();
+            });
+            objectField.RegisterCallback<MouseDownEvent>(@event =>
+            {
+                @event.StopPropagation();
+            }, TrickleDown.TrickleDown);
             objectField.style.flexGrow = 1f;
             containerOnSameRowWithToggle.Add(objectField);
-            
-            if (property.objectReferenceValue == null)
-                return container;
-
-            var serializedObject = new SerializedObject(property.objectReferenceValue);
-            
-            var iterator = serializedObject.GetIterator();
-            iterator.Next(true);
-            while (iterator.NextVisible(false))
-            {
-                var propertyField = new PropertyField();
-                propertyField.BindProperty(iterator);
-                foldout.Add(propertyField);
-            }
-
             return container;
         }
 
@@ -59,7 +65,7 @@ namespace Paulsams.MicsUtils
             float overallHeight = base.GetPropertyHeight(property, label);
             if (property.isExpanded == false || property.objectReferenceValue == null)
                 return overallHeight;
-        
+
             var serializedObject = new SerializedObject(property.objectReferenceValue);
 
             overallHeight += EditorGUIUtility.standardVerticalSpacing;
@@ -85,16 +91,16 @@ namespace Paulsams.MicsUtils
 
             if (property.objectReferenceValue == null)
                 return;
-        
+
             property.isExpanded = EditorGUI.Foldout(position, property.isExpanded, label, true);
             if (property.isExpanded)
             {
                 var serializedObject = new SerializedObject(property.objectReferenceValue);
-        
+
                 ++EditorGUI.indentLevel;
-            
+
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            
+
                 var iterator = serializedObject.GetIterator();
                 iterator.Next(true);
                 while (iterator.NextVisible(false))
@@ -102,10 +108,9 @@ namespace Paulsams.MicsUtils
                     EditorGUI.PropertyField(position, iterator);
                     position.y += EditorGUI.GetPropertyHeight(iterator) + EditorGUIUtility.standardVerticalSpacing;
                 }
-            
+
                 --EditorGUI.indentLevel;
             }
         }
     }
 }
-    
