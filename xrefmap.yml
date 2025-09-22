@@ -386,22 +386,22 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault
   nameWithType: CollectionExtensions.FindMaxDistanceElementOrDefault
-- uid: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,``0,System.Boolean})
+- uid: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,``0,System.Boolean})
   name: FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
-  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMaxDistanceElementOrDefault__1_IEnumerable___0__Vector3_Func___0___0_System_Boolean__
-  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,``0,System.Boolean})
+  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMaxDistanceElementOrDefault__1_System_Collections_Generic_IEnumerable___0__Vector3_System_Func___0___0_System_Boolean__
+  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,``0,System.Boolean})
   name.vb: FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
-  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
-  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
+  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault<T>(System.Collections.Generic.IEnumerable<T>, Vector3, System.Func<T, T, bool>)
+  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(System.Collections.Generic.IEnumerable(Of T), Vector3, System.Func(Of T, T, Boolean))
   nameWithType: CollectionExtensions.FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
   nameWithType.vb: CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
-- uid: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,Vector3},Func{``0,``0,System.Boolean})
+- uid: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,Vector3},System.Func{``0,``0,System.Boolean})
   name: FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
-  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMaxDistanceElementOrDefault__1_IEnumerable___0__Vector3_Func___0_Vector3__Func___0___0_System_Boolean__
-  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,Vector3},Func{``0,``0,System.Boolean})
+  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMaxDistanceElementOrDefault__1_System_Collections_Generic_IEnumerable___0__Vector3_System_Func___0_Vector3__System_Func___0___0_System_Boolean__
+  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,Vector3},System.Func{``0,``0,System.Boolean})
   name.vb: FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
-  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
-  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
+  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault<T>(System.Collections.Generic.IEnumerable<T>, Vector3, System.Func<T, Vector3>, System.Func<T, T, bool>)
+  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(System.Collections.Generic.IEnumerable(Of T), Vector3, System.Func(Of T, Vector3), System.Func(Of T, T, Boolean))
   nameWithType: CollectionExtensions.FindMaxDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
   nameWithType.vb: CollectionExtensions.FindMaxDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
 - uid: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault*
@@ -411,22 +411,22 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault
   nameWithType: CollectionExtensions.FindMinDistanceElementOrDefault
-- uid: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,``0,System.Boolean})
+- uid: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,``0,System.Boolean})
   name: FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
-  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMinDistanceElementOrDefault__1_IEnumerable___0__Vector3_Func___0___0_System_Boolean__
-  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,``0,System.Boolean})
+  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMinDistanceElementOrDefault__1_System_Collections_Generic_IEnumerable___0__Vector3_System_Func___0___0_System_Boolean__
+  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,``0,System.Boolean})
   name.vb: FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
-  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
-  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
+  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault<T>(System.Collections.Generic.IEnumerable<T>, Vector3, System.Func<T, T, bool>)
+  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(System.Collections.Generic.IEnumerable(Of T), Vector3, System.Func(Of T, T, Boolean))
   nameWithType: CollectionExtensions.FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, T, bool>)
   nameWithType.vb: CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, T, Boolean))
-- uid: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,Vector3},Func{``0,``0,System.Boolean})
+- uid: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,Vector3},System.Func{``0,``0,System.Boolean})
   name: FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
-  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMinDistanceElementOrDefault__1_IEnumerable___0__Vector3_Func___0_Vector3__Func___0___0_System_Boolean__
-  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(IEnumerable{``0},Vector3,Func{``0,Vector3},Func{``0,``0,System.Boolean})
+  href: api/Paulsams.MicsUtils.CollectionExtensions.html#Paulsams_MicsUtils_CollectionExtensions_FindMinDistanceElementOrDefault__1_System_Collections_Generic_IEnumerable___0__Vector3_System_Func___0_Vector3__System_Func___0___0_System_Boolean__
+  commentId: M:Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault``1(System.Collections.Generic.IEnumerable{``0},Vector3,System.Func{``0,Vector3},System.Func{``0,``0,System.Boolean})
   name.vb: FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
-  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
-  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
+  fullName: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault<T>(System.Collections.Generic.IEnumerable<T>, Vector3, System.Func<T, Vector3>, System.Func<T, T, bool>)
+  fullName.vb: Paulsams.MicsUtils.CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(System.Collections.Generic.IEnumerable(Of T), Vector3, System.Func(Of T, Vector3), System.Func(Of T, T, Boolean))
   nameWithType: CollectionExtensions.FindMinDistanceElementOrDefault<T>(IEnumerable<T>, Vector3, Func<T, Vector3>, Func<T, T, bool>)
   nameWithType.vb: CollectionExtensions.FindMinDistanceElementOrDefault(Of T)(IEnumerable(Of T), Vector3, Func(Of T, Vector3), Func(Of T, T, Boolean))
 - uid: Paulsams.MicsUtils.DictionaryExtensions
@@ -442,13 +442,13 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue
   nameWithType: DictionaryExtensions.KeyByValue
-- uid: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue``2(IDictionary{``0,``1},``1)
+- uid: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue``2(System.Collections.Generic.IDictionary{``0,``1},``1)
   name: KeyByValue<TKey, TValue>(IDictionary<TKey, TValue>, TValue)
-  href: api/Paulsams.MicsUtils.DictionaryExtensions.html#Paulsams_MicsUtils_DictionaryExtensions_KeyByValue__2_IDictionary___0___1____1_
-  commentId: M:Paulsams.MicsUtils.DictionaryExtensions.KeyByValue``2(IDictionary{``0,``1},``1)
+  href: api/Paulsams.MicsUtils.DictionaryExtensions.html#Paulsams_MicsUtils_DictionaryExtensions_KeyByValue__2_System_Collections_Generic_IDictionary___0___1____1_
+  commentId: M:Paulsams.MicsUtils.DictionaryExtensions.KeyByValue``2(System.Collections.Generic.IDictionary{``0,``1},``1)
   name.vb: KeyByValue(Of TKey, TValue)(IDictionary(Of TKey, TValue), TValue)
-  fullName: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue<TKey, TValue>(IDictionary<TKey, TValue>, TValue)
-  fullName.vb: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue(Of TKey, TValue)(IDictionary(Of TKey, TValue), TValue)
+  fullName: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue>, TValue)
+  fullName.vb: Paulsams.MicsUtils.DictionaryExtensions.KeyByValue(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TValue)
   nameWithType: DictionaryExtensions.KeyByValue<TKey, TValue>(IDictionary<TKey, TValue>, TValue)
   nameWithType.vb: DictionaryExtensions.KeyByValue(Of TKey, TValue)(IDictionary(Of TKey, TValue), TValue)
 - uid: Paulsams.MicsUtils.EditorWindowUtility
@@ -529,6 +529,19 @@ references:
   commentId: T:Paulsams.MicsUtils.GameObjectLayerDrawer
   fullName: Paulsams.MicsUtils.GameObjectLayerDrawer
   nameWithType: GameObjectLayerDrawer
+- uid: Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI(SerializedProperty)
+  name: CreatePropertyGUI(SerializedProperty)
+  href: api/Paulsams.MicsUtils.GameObjectLayerDrawer.html#Paulsams_MicsUtils_GameObjectLayerDrawer_CreatePropertyGUI_SerializedProperty_
+  commentId: M:Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI(SerializedProperty)
+  fullName: Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI(SerializedProperty)
+  nameWithType: GameObjectLayerDrawer.CreatePropertyGUI(SerializedProperty)
+- uid: Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI*
+  name: CreatePropertyGUI
+  href: api/Paulsams.MicsUtils.GameObjectLayerDrawer.html#Paulsams_MicsUtils_GameObjectLayerDrawer_CreatePropertyGUI_
+  commentId: Overload:Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI
+  isSpec: "True"
+  fullName: Paulsams.MicsUtils.GameObjectLayerDrawer.CreatePropertyGUI
+  nameWithType: GameObjectLayerDrawer.CreatePropertyGUI
 - uid: Paulsams.MicsUtils.GameObjectLayerDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
   name: OnGUI(Rect, SerializedProperty, GUIContent)
   href: api/Paulsams.MicsUtils.GameObjectLayerDrawer.html#Paulsams_MicsUtils_GameObjectLayerDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
@@ -554,6 +567,19 @@ references:
   commentId: T:Paulsams.MicsUtils.IgnoreAttributeDrawer
   fullName: Paulsams.MicsUtils.IgnoreAttributeDrawer
   nameWithType: IgnoreAttributeDrawer
+- uid: Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  name: CreatePropertyGUI(SerializedProperty)
+  href: api/Paulsams.MicsUtils.IgnoreAttributeDrawer.html#Paulsams_MicsUtils_IgnoreAttributeDrawer_CreatePropertyGUI_SerializedProperty_
+  commentId: M:Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  fullName: Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  nameWithType: IgnoreAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+- uid: Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI*
+  name: CreatePropertyGUI
+  href: api/Paulsams.MicsUtils.IgnoreAttributeDrawer.html#Paulsams_MicsUtils_IgnoreAttributeDrawer_CreatePropertyGUI_
+  commentId: Overload:Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI
+  isSpec: "True"
+  fullName: Paulsams.MicsUtils.IgnoreAttributeDrawer.CreatePropertyGUI
+  nameWithType: IgnoreAttributeDrawer.CreatePropertyGUI
 - uid: Paulsams.MicsUtils.IgnoreAttributeDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
   name: GetPropertyHeight(SerializedProperty, GUIContent)
   href: api/Paulsams.MicsUtils.IgnoreAttributeDrawer.html#Paulsams_MicsUtils_IgnoreAttributeDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
@@ -593,13 +619,13 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ListExtensions.Clone
   nameWithType: ListExtensions.Clone
-- uid: Paulsams.MicsUtils.ListExtensions.Clone``1(IEnumerable{``0})
+- uid: Paulsams.MicsUtils.ListExtensions.Clone``1(System.Collections.Generic.IEnumerable{``0})
   name: Clone<T>(IEnumerable<T>)
-  href: api/Paulsams.MicsUtils.ListExtensions.html#Paulsams_MicsUtils_ListExtensions_Clone__1_IEnumerable___0__
-  commentId: M:Paulsams.MicsUtils.ListExtensions.Clone``1(IEnumerable{``0})
+  href: api/Paulsams.MicsUtils.ListExtensions.html#Paulsams_MicsUtils_ListExtensions_Clone__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Paulsams.MicsUtils.ListExtensions.Clone``1(System.Collections.Generic.IEnumerable{``0})
   name.vb: Clone(Of T)(IEnumerable(Of T))
-  fullName: Paulsams.MicsUtils.ListExtensions.Clone<T>(IEnumerable<T>)
-  fullName.vb: Paulsams.MicsUtils.ListExtensions.Clone(Of T)(IEnumerable(Of T))
+  fullName: Paulsams.MicsUtils.ListExtensions.Clone<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Paulsams.MicsUtils.ListExtensions.Clone(Of T)(System.Collections.Generic.IEnumerable(Of T))
   nameWithType: ListExtensions.Clone<T>(IEnumerable<T>)
   nameWithType.vb: ListExtensions.Clone(Of T)(IEnumerable(Of T))
 - uid: Paulsams.MicsUtils.ListExtensions.Resize*
@@ -609,13 +635,13 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ListExtensions.Resize
   nameWithType: ListExtensions.Resize
-- uid: Paulsams.MicsUtils.ListExtensions.Resize``1(List{``0},System.Int32)
+- uid: Paulsams.MicsUtils.ListExtensions.Resize``1(System.Collections.Generic.List{``0},System.Int32)
   name: Resize<T>(List<T>, int)
-  href: api/Paulsams.MicsUtils.ListExtensions.html#Paulsams_MicsUtils_ListExtensions_Resize__1_List___0__System_Int32_
-  commentId: M:Paulsams.MicsUtils.ListExtensions.Resize``1(List{``0},System.Int32)
+  href: api/Paulsams.MicsUtils.ListExtensions.html#Paulsams_MicsUtils_ListExtensions_Resize__1_System_Collections_Generic_List___0__System_Int32_
+  commentId: M:Paulsams.MicsUtils.ListExtensions.Resize``1(System.Collections.Generic.List{``0},System.Int32)
   name.vb: Resize(Of T)(List(Of T), Integer)
-  fullName: Paulsams.MicsUtils.ListExtensions.Resize<T>(List<T>, int)
-  fullName.vb: Paulsams.MicsUtils.ListExtensions.Resize(Of T)(List(Of T), Integer)
+  fullName: Paulsams.MicsUtils.ListExtensions.Resize<T>(System.Collections.Generic.List<T>, int)
+  fullName.vb: Paulsams.MicsUtils.ListExtensions.Resize(Of T)(System.Collections.Generic.List(Of T), Integer)
   nameWithType: ListExtensions.Resize<T>(List<T>, int)
   nameWithType.vb: ListExtensions.Resize(Of T)(List(Of T), Integer)
 - uid: Paulsams.MicsUtils.Math2DUtility
@@ -700,13 +726,13 @@ references:
   commentId: T:Paulsams.MicsUtils.PhysicsUtilities
   fullName: Paulsams.MicsUtils.PhysicsUtilities
   nameWithType: PhysicsUtilities
-- uid: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(IList{Collider},IList{Collider},System.Boolean)
+- uid: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(System.Collections.Generic.IList{Collider},System.Collections.Generic.IList{Collider},System.Boolean)
   name: IgnoreCollision(IList<Collider>, IList<Collider>, bool)
-  href: api/Paulsams.MicsUtils.PhysicsUtilities.html#Paulsams_MicsUtils_PhysicsUtilities_IgnoreCollision_IList_Collider__IList_Collider__System_Boolean_
-  commentId: M:Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(IList{Collider},IList{Collider},System.Boolean)
+  href: api/Paulsams.MicsUtils.PhysicsUtilities.html#Paulsams_MicsUtils_PhysicsUtilities_IgnoreCollision_System_Collections_Generic_IList_Collider__System_Collections_Generic_IList_Collider__System_Boolean_
+  commentId: M:Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(System.Collections.Generic.IList{Collider},System.Collections.Generic.IList{Collider},System.Boolean)
   name.vb: IgnoreCollision(IList(Of Collider), IList(Of Collider), Boolean)
-  fullName: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(IList<Collider>, IList<Collider>, bool)
-  fullName.vb: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(IList(Of Collider), IList(Of Collider), Boolean)
+  fullName: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(System.Collections.Generic.IList<Collider>, System.Collections.Generic.IList<Collider>, bool)
+  fullName.vb: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision(System.Collections.Generic.IList(Of Collider), System.Collections.Generic.IList(Of Collider), Boolean)
   nameWithType: PhysicsUtilities.IgnoreCollision(IList<Collider>, IList<Collider>, bool)
   nameWithType.vb: PhysicsUtilities.IgnoreCollision(IList(Of Collider), IList(Of Collider), Boolean)
 - uid: Paulsams.MicsUtils.PhysicsUtilities.IgnoreCollision*
@@ -728,6 +754,19 @@ references:
   commentId: T:Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer
   fullName: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer
   nameWithType: ReadonlyFieldAttributeDrawer
+- uid: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  name: CreatePropertyGUI(SerializedProperty)
+  href: api/Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.html#Paulsams_MicsUtils_ReadonlyFieldAttributeDrawer_CreatePropertyGUI_SerializedProperty_
+  commentId: M:Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  fullName: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+  nameWithType: ReadonlyFieldAttributeDrawer.CreatePropertyGUI(SerializedProperty)
+- uid: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI*
+  name: CreatePropertyGUI
+  href: api/Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.html#Paulsams_MicsUtils_ReadonlyFieldAttributeDrawer_CreatePropertyGUI_
+  commentId: Overload:Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI
+  isSpec: "True"
+  fullName: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.CreatePropertyGUI
+  nameWithType: ReadonlyFieldAttributeDrawer.CreatePropertyGUI
 - uid: Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
   name: OnGUI(Rect, SerializedProperty, GUIContent)
   href: api/Paulsams.MicsUtils.ReadonlyFieldAttributeDrawer.html#Paulsams_MicsUtils_ReadonlyFieldAttributeDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
@@ -754,13 +793,13 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields
   nameWithType: ReflectionExtensions.GetPublicConstFields
-- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``1(Type,System.Boolean)
+- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``1(System.Type,System.Boolean)
   name: GetPublicConstFields<T>(Type, bool)
-  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicConstFields__1_Type_System_Boolean_
-  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``1(Type,System.Boolean)
+  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicConstFields__1_System_Type_System_Boolean_
+  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``1(System.Type,System.Boolean)
   name.vb: GetPublicConstFields(Of T)(Type, Boolean)
-  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields<T>(Type, bool)
-  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields(Of T)(Type, Boolean)
+  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields<T>(System.Type, bool)
+  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields(Of T)(System.Type, Boolean)
   nameWithType: ReflectionExtensions.GetPublicConstFields<T>(Type, bool)
   nameWithType.vb: ReflectionExtensions.GetPublicConstFields(Of T)(Type, Boolean)
 - uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields*
@@ -770,13 +809,13 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields
   nameWithType: ReflectionExtensions.GetPublicStaticReadonlyFields
-- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``1(Type,System.Boolean)
+- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``1(System.Type,System.Boolean)
   name: GetPublicStaticReadonlyFields<T>(Type, bool)
-  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields__1_Type_System_Boolean_
-  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``1(Type,System.Boolean)
+  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields__1_System_Type_System_Boolean_
+  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``1(System.Type,System.Boolean)
   name.vb: GetPublicStaticReadonlyFields(Of T)(Type, Boolean)
-  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields<T>(Type, bool)
-  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields(Of T)(Type, Boolean)
+  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields<T>(System.Type, bool)
+  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields(Of T)(System.Type, Boolean)
   nameWithType: ReflectionExtensions.GetPublicStaticReadonlyFields<T>(Type, bool)
   nameWithType.vb: ReflectionExtensions.GetPublicStaticReadonlyFields(Of T)(Type, Boolean)
 - uid: Paulsams.MicsUtils.ReflectionUtilities
@@ -801,11 +840,11 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ReflectionUtilities.CopyFieldsFromSourceToDestination
   nameWithType: ReflectionUtilities.CopyFieldsFromSourceToDestination
-- uid: Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(Type)
+- uid: Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(System.Type)
   name: CreateObjectByDefaultConstructorOrUnitializedObject(Type)
-  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_CreateObjectByDefaultConstructorOrUnitializedObject_Type_
-  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(Type)
-  fullName: Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(Type)
+  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_CreateObjectByDefaultConstructorOrUnitializedObject_System_Type_
+  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(System.Type)
+  fullName: Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(System.Type)
   nameWithType: ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(Type)
 - uid: Paulsams.MicsUtils.ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject*
   name: CreateObjectByDefaultConstructorOrUnitializedObject
@@ -827,11 +866,11 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ReflectionUtilities.GetAllTypesInCurrentDomain
   nameWithType: ReflectionUtilities.GetAllTypesInCurrentDomain
-- uid: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(Type)
+- uid: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(System.Type)
   name: GetArrayOrListElementTypeOrThisType(Type)
-  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_GetArrayOrListElementTypeOrThisType_Type_
-  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(Type)
-  fullName: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(Type)
+  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_GetArrayOrListElementTypeOrThisType_System_Type_
+  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(System.Type)
+  fullName: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType(System.Type)
   nameWithType: ReflectionUtilities.GetArrayOrListElementTypeOrThisType(Type)
 - uid: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType*
   name: GetArrayOrListElementTypeOrThisType
@@ -840,11 +879,11 @@ references:
   isSpec: "True"
   fullName: Paulsams.MicsUtils.ReflectionUtilities.GetArrayOrListElementTypeOrThisType
   nameWithType: ReflectionUtilities.GetArrayOrListElementTypeOrThisType
-- uid: Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(Type)
+- uid: Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(System.Type)
   name: GetFinalAssignableTypesFromAllTypes(Type)
-  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_GetFinalAssignableTypesFromAllTypes_Type_
-  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(Type)
-  fullName: Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(Type)
+  href: api/Paulsams.MicsUtils.ReflectionUtilities.html#Paulsams_MicsUtils_ReflectionUtilities_GetFinalAssignableTypesFromAllTypes_System_Type_
+  commentId: M:Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(System.Type)
+  fullName: Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(System.Type)
   nameWithType: ReflectionUtilities.GetFinalAssignableTypesFromAllTypes(Type)
 - uid: Paulsams.MicsUtils.ReflectionUtilities.GetFinalAssignableTypesFromAllTypes*
   name: GetFinalAssignableTypesFromAllTypes
@@ -894,13 +933,13 @@ references:
   commentId: T:Paulsams.MicsUtils.SerializedPropertyExtensions
   fullName: Paulsams.MicsUtils.SerializedPropertyExtensions
   nameWithType: SerializedPropertyExtensions
-- uid: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty,SerializedProperty,System.Boolean,Func{SerializedProperty,SerializedProperty,System.Boolean})
+- uid: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty,SerializedProperty,System.Boolean,System.Func{SerializedProperty,SerializedProperty,System.Boolean})
   name: CopyValueToOtherProperty(SerializedProperty, SerializedProperty, bool, Func<SerializedProperty, SerializedProperty, bool>)
-  href: api/Paulsams.MicsUtils.SerializedPropertyExtensions.html#Paulsams_MicsUtils_SerializedPropertyExtensions_CopyValueToOtherProperty_SerializedProperty_SerializedProperty_System_Boolean_Func_SerializedProperty_SerializedProperty_System_Boolean__
-  commentId: M:Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty,SerializedProperty,System.Boolean,Func{SerializedProperty,SerializedProperty,System.Boolean})
+  href: api/Paulsams.MicsUtils.SerializedPropertyExtensions.html#Paulsams_MicsUtils_SerializedPropertyExtensions_CopyValueToOtherProperty_SerializedProperty_SerializedProperty_System_Boolean_System_Func_SerializedProperty_SerializedProperty_System_Boolean__
+  commentId: M:Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty,SerializedProperty,System.Boolean,System.Func{SerializedProperty,SerializedProperty,System.Boolean})
   name.vb: CopyValueToOtherProperty(SerializedProperty, SerializedProperty, Boolean, Func(Of SerializedProperty, SerializedProperty, Boolean))
-  fullName: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, bool, Func<SerializedProperty, SerializedProperty, bool>)
-  fullName.vb: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, Boolean, Func(Of SerializedProperty, SerializedProperty, Boolean))
+  fullName: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, bool, System.Func<SerializedProperty, SerializedProperty, bool>)
+  fullName.vb: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, Boolean, System.Func(Of SerializedProperty, SerializedProperty, Boolean))
   nameWithType: SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, bool, Func<SerializedProperty, SerializedProperty, bool>)
   nameWithType.vb: SerializedPropertyExtensions.CopyValueToOtherProperty(SerializedProperty, SerializedProperty, Boolean, Func(Of SerializedProperty, SerializedProperty, Boolean))
 - uid: Paulsams.MicsUtils.SerializedPropertyExtensions.CopyValueToOtherProperty*
