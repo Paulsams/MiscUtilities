@@ -13,6 +13,12 @@ references:
   commentId: T:Paulsams.MicsUtils.AssetDatabaseUtilities
   fullName: Paulsams.MicsUtils.AssetDatabaseUtilities
   nameWithType: AssetDatabaseUtilities
+- uid: Paulsams.MicsUtils.AssetDatabaseUtilities.AssetsFolders
+  name: AssetsFolders
+  href: api/Paulsams.MicsUtils.AssetDatabaseUtilities.html#Paulsams_MicsUtils_AssetDatabaseUtilities_AssetsFolders
+  commentId: F:Paulsams.MicsUtils.AssetDatabaseUtilities.AssetsFolders
+  fullName: Paulsams.MicsUtils.AssetDatabaseUtilities.AssetsFolders
+  nameWithType: AssetDatabaseUtilities.AssetsFolders
 - uid: Paulsams.MicsUtils.AssetDatabaseUtilities.FilterKeys
   name: AssetDatabaseUtilities.FilterKeys
   href: api/Paulsams.MicsUtils.AssetDatabaseUtilities.FilterKeys.html
