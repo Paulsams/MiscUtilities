@@ -243,7 +243,7 @@ namespace Paulsams.MicsUtils
                                 ? fieldType.GetElementType()
                                 : fieldType.GetGenericArguments()[0]
                             : fieldType;
-                        newObj = ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(objectType);
+                        newObj = ReflectionUtilities.CreateObjectByDefaultConstructorOrUninitializedObject(objectType);
                     }
 
                     if (applyWithIsUndo)
@@ -262,7 +262,7 @@ namespace Paulsams.MicsUtils
                     var assemblyNameAndTypeName = source.managedReferenceFullTypename.Split(' ');
                     var type = Assembly.Load(assemblyNameAndTypeName[0]).GetType(assemblyNameAndTypeName[1]);
                     destination.managedReferenceValue =
-                        ReflectionUtilities.CreateObjectByDefaultConstructorOrUnitializedObject(type);
+                        ReflectionUtilities.CreateObjectByDefaultConstructorOrUninitializedObject(type);
                     break;
                 case SerializedPropertyType.Integer:
                 case SerializedPropertyType.Enum:

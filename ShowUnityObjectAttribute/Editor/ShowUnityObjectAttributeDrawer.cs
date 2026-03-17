@@ -29,6 +29,8 @@ namespace Paulsams.MicsUtils
             void UpdateChildren()
             {
                 foldout.Clear();
+                if (property.objectReferenceValue is null)
+                    return;
                 var serializedObject = new SerializedObject(property.objectReferenceValue);
                 var iterator = serializedObject.GetIterator();
                 iterator.Next(true);

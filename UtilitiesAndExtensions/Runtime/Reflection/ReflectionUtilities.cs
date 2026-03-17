@@ -22,27 +22,34 @@ namespace Paulsams.MicsUtils
             if (source == null || destination == null)
                 return;
 
-            var fieldsOldManagedReference = source.GetType()
-                .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-
-            var fieldsNewManagedReference = destination.GetType()
-                .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            for (int i = 0; i < fieldsNewManagedReference.Length; ++i)
+            var bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic |
+                               BindingFlags.Public | BindingFlags.DeclaredOnly;
+            var itDestinationType = destination.GetType();
+            do
             {
-                var newField = fieldsNewManagedReference[i];
-                var fieldNeedCopy = fieldsOldManagedReference.FirstOrDefault((oldField) =>
-                    oldField.FieldType == newField.FieldType && oldField.Name == newField.Name);
-
-                if (fieldNeedCopy != default)
-                    newField.SetValue(destination, fieldNeedCopy.GetValue(source));
-            }
+                var fieldsNewManagedReference = itDestinationType.GetFields(bindingFlags);
+                for (int i = 0; i < fieldsNewManagedReference.Length; ++i)
+                {
+                    var newField = fieldsNewManagedReference[i];
+                    FieldInfo fieldNeedCopy;
+                    var itSourceType = source.GetType();
+                    do
+                    {
+                        fieldNeedCopy = itSourceType.GetField(newField.Name, bindingFlags);
+                        itSourceType = itSourceType.BaseType;
+                    } while (itSourceType != null && fieldNeedCopy == null);
+                    if (fieldNeedCopy != null)
+                        newField.SetValue(destination, fieldNeedCopy.GetValue(source));
+                }
+                itDestinationType = itDestinationType.BaseType;
+            } while (itDestinationType != null);
         }
 
         /// <summary>
         /// It will return a new object depending on <paramref name="type"/> - if it has a constructor without arguments,
         /// it will create it through it, or through <see cref="System.Runtime.Serialization.FormatterServices.GetUninitializedObject(System.Type)"/>.
         /// </summary>
-        public static object CreateObjectByDefaultConstructorOrUnitializedObject(Type type) =>
+        public static object CreateObjectByDefaultConstructorOrUninitializedObject(Type type) =>
             type.IsValueType || type.GetConstructor(Type.EmptyTypes) != null
                 ? Activator.CreateInstance(type)
                 : FormatterServices.GetUninitializedObject(type);

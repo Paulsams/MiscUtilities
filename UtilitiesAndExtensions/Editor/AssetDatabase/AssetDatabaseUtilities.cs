@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Paulsams.MicsUtils
@@ -16,10 +17,12 @@ namespace Paulsams.MicsUtils
         /// </summary>
         public static class FilterKeys
         {
-            public const string Scenes = "t:scene";
+            public const string Scenes = "t:sceneasset";
             public const string Prefabs = "t:prefab";
             public const string ScriptableObjects = "t:ScriptableObject";
         }
+
+        public static readonly string[] AssetsFolders = new string[] { "Assets" };
 
         /// <summary>
         /// Saves the current context of open scenes, lazily opens all scenes as they are fed out using an iterator,
@@ -38,22 +41,22 @@ namespace Paulsams.MicsUtils
                     Selection.activeGameObject.GetLocalIdentifierInFile()
                 );
 
-            foreach (var pathToScene in AssetDatabase.FindAssets(FilterKeys.Scenes)
-                         .Where(path => path.StartsWith("Assets/")))
+            foreach (var guid in AssetDatabase.FindAssets(FilterKeys.Scenes, AssetsFolders))
             {
-                Scene scene = EditorSceneManager.OpenScene(pathToScene, OpenSceneMode.Single);
+                var scene = EditorSceneManager.OpenScene(AssetDatabase.GUIDToAssetPath(guid), OpenSceneMode.Single);
                 yield return scene;
             }
 
             {
                 EditorSceneManager.RestoreSceneManagerSetup(oldScenesSetup);
 
-                Selection.activeGameObject = oldSelectedObject.HasValue
-                    ? EditorSceneManager.GetSceneByPath(oldSelectedObject.Value.scenePath)
+                if (oldSelectedObject.HasValue)
+                {
+                    Selection.activeGameObject = EditorSceneManager.GetSceneByPath(oldSelectedObject.Value.scenePath)
                         .GetRootGameObjects()
                         .FirstOrDefault(gameObject =>
-                            gameObject.GetLocalIdentifierInFile() == oldSelectedObject.Value.identifierInFile)
-                    : null;
+                            gameObject.GetLocalIdentifierInFile() == oldSelectedObject.Value.identifierInFile);
+                }
             }
         }
     }
