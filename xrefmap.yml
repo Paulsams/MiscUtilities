@@ -808,6 +808,15 @@ references:
   fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields(Of T)(Type, Boolean)
   nameWithType: ReflectionExtensions.GetPublicConstFields<T>(Type, bool)
   nameWithType.vb: ReflectionExtensions.GetPublicConstFields(Of T)(Type, Boolean)
+- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``2(Type,Func{FieldInfo,``1},System.Boolean)
+  name: GetPublicConstFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicConstFields__2_Type_Func_FieldInfo___1__System_Boolean_
+  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``2(Type,Func{FieldInfo,``1},System.Boolean)
+  name.vb: GetPublicConstFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
+  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
+  nameWithType: ReflectionExtensions.GetPublicConstFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  nameWithType.vb: ReflectionExtensions.GetPublicConstFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
 - uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields*
   name: GetPublicStaticReadonlyFields
   href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields_
@@ -824,6 +833,15 @@ references:
   fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields(Of T)(Type, Boolean)
   nameWithType: ReflectionExtensions.GetPublicStaticReadonlyFields<T>(Type, bool)
   nameWithType.vb: ReflectionExtensions.GetPublicStaticReadonlyFields(Of T)(Type, Boolean)
+- uid: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``2(Type,Func{FieldInfo,``1},System.Boolean)
+  name: GetPublicStaticReadonlyFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  href: api/Paulsams.MicsUtils.ReflectionExtensions.html#Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields__2_Type_Func_FieldInfo___1__System_Boolean_
+  commentId: M:Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``2(Type,Func{FieldInfo,``1},System.Boolean)
+  name.vb: GetPublicStaticReadonlyFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
+  fullName: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  fullName.vb: Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
+  nameWithType: ReflectionExtensions.GetPublicStaticReadonlyFields<TField, TResult>(Type, Func<FieldInfo, TResult>, bool)
+  nameWithType.vb: ReflectionExtensions.GetPublicStaticReadonlyFields(Of TField, TResult)(Type, Func(Of FieldInfo, TResult), Boolean)
 - uid: Paulsams.MicsUtils.ReflectionUtilities
   name: ReflectionUtilities
   href: api/Paulsams.MicsUtils.ReflectionUtilities.html

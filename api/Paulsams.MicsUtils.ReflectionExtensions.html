@@ -189,9 +189,84 @@
   </table>
 
 
+  <a id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicConstFields_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields*"></a>
+  <h4 id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicConstFields__2_Type_Func_FieldInfo___1__System_Boolean_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicConstFields``2(Type,Func{FieldInfo,``1},System.Boolean)">GetPublicConstFields&lt;TField, TResult&gt;(Type, Func&lt;FieldInfo, TResult&gt;, bool)</h4>
+  <div class="markdown level1 summary"><p>Get all public constant fields of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;TResult&gt; GetPublicConstFields&lt;TField, TResult&gt;(this Type type, Func&lt;FieldInfo, TResult&gt; converter, bool checkForAssignableType = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The class <span class="xref">System.Type</span> from which the field data will be taken.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func&lt;, &gt;</span>&lt;<span class="xref">FieldInfo</span>, TResult&gt;</td>
+        <td><span class="parametername">converter</span></td>
+        <td><p>A converter from FieldInfo to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">checkForAssignableType</span></td>
+        <td><p>Will types inherited from <code data-dev-comment-type="typeparamref" class="typeparamref">TField</code> be returned?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable&lt;&gt;</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TField</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields*"></a>
   <h4 id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields__1_Type_System_Boolean_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``1(Type,System.Boolean)">GetPublicStaticReadonlyFields&lt;T&gt;(Type, bool)</h4>
-  <div class="markdown level1 summary"><p>Get all public static reaonly fields of a class.</p>
+  <div class="markdown level1 summary"><p>Get all public static readonly fields of a class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -248,6 +323,81 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields*"></a>
+  <h4 id="Paulsams_MicsUtils_ReflectionExtensions_GetPublicStaticReadonlyFields__2_Type_Func_FieldInfo___1__System_Boolean_" data-uid="Paulsams.MicsUtils.ReflectionExtensions.GetPublicStaticReadonlyFields``2(Type,Func{FieldInfo,``1},System.Boolean)">GetPublicStaticReadonlyFields&lt;TField, TResult&gt;(Type, Func&lt;FieldInfo, TResult&gt;, bool)</h4>
+  <div class="markdown level1 summary"><p>Get all public static readonly fields of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;TResult&gt; GetPublicStaticReadonlyFields&lt;TField, TResult&gt;(this Type type, Func&lt;FieldInfo, TResult&gt; converter, bool checkForAssignableType = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The class <span class="xref">System.Type</span> from which the field data will be taken.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func&lt;, &gt;</span>&lt;<span class="xref">FieldInfo</span>, TResult&gt;</td>
+        <td><span class="parametername">converter</span></td>
+        <td><p>A converter from FieldInfo to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">checkForAssignableType</span></td>
+        <td><p>Will types inherited from <code data-dev-comment-type="typeparamref" class="typeparamref">TField</code> be returned?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable&lt;&gt;</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TField</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
         <td></td>
       </tr>
     </tbody>
