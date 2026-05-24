@@ -15,42 +15,63 @@ namespace Paulsams.MicsUtils
         /// </summary>
         /// <param name="type"> The class <see cref="T:System.Type"/> from which the field data will be taken. </param>
         /// <param name="checkForAssignableType"> Will types inherited from <typeparamref name="T"/> be returned? </param>
-        /// <typeparam name="T"></typeparam>
-        public static IEnumerable<T> GetPublicConstFields<T>(this Type type, bool checkForAssignableType = false)
+        public static IEnumerable<T> GetPublicConstFields<T>(this Type type, bool checkForAssignableType = false) =>
+            GetPublicConstFields<T, T>(type, field => (T)field.GetRawConstantValue(), checkForAssignableType);
+
+        /// <summary>
+        /// Get all public constant fields of a class.
+        /// </summary>
+        /// <param name="type"> The class <see cref="T:System.Type"/> from which the field data will be taken. </param>
+        /// <param name="converter"> A converter from FieldInfo to <typeparamref name="TResult"/>. </param>
+        /// <param name="checkForAssignableType"> Will types inherited from <typeparamref name="TField"/> be returned? </param>
+        public static IEnumerable<TResult> GetPublicConstFields<TField, TResult>(
+            this Type type,
+            Func<FieldInfo, TResult> converter,
+            bool checkForAssignableType = false)
         {
-            return GetPublicStaticFields(type, checkForAssignableType,
+            return GetPublicStaticFields<TField, TResult>(type, checkForAssignableType,
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy,
                 field => field.IsLiteral && field.IsInitOnly == false,
-                (field) => (T)field.GetRawConstantValue());
+                converter);
         }
 
         /// <summary>
-        /// Get all public static reaonly fields of a class.
+        /// Get all public static readonly fields of a class.
         /// </summary>
         /// <param name="type"> The class <see cref="T:System.Type"/> from which the field data will be taken. </param>
         /// <param name="checkForAssignableType"> Will types inherited from <typeparamref name="T"/> be returned? </param>
-        /// <typeparam name="T"></typeparam>
-        public static IEnumerable<T> GetPublicStaticReadonlyFields<T>(this Type type, bool checkForAssignableType = false)
+        public static IEnumerable<T> GetPublicStaticReadonlyFields<T>(this Type type,
+            bool checkForAssignableType = false) =>
+            GetPublicStaticReadonlyFields<T, T>(type, field => (T)field.GetValue(null), checkForAssignableType);
+
+        /// <summary>
+        /// Get all public static readonly fields of a class.
+        /// </summary>
+        /// <param name="type"> The class <see cref="T:System.Type"/> from which the field data will be taken. </param>
+        /// <param name="converter"> A converter from FieldInfo to <typeparamref name="TResult"/>. </param>
+        /// <param name="checkForAssignableType"> Will types inherited from <typeparamref name="TField"/> be returned? </param>
+        public static IEnumerable<TResult> GetPublicStaticReadonlyFields<TField, TResult>(this Type type,
+            Func<FieldInfo, TResult> converter,
+            bool checkForAssignableType = false)
         {
-            return GetPublicStaticFields(type, checkForAssignableType,
+            return GetPublicStaticFields<TField, TResult>(type, checkForAssignableType,
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy,
-                (field) => field.IsLiteral == false && field.IsInitOnly,
-                (field) => (T)field.GetValue(null));
+                field => field.IsLiteral == false && field.IsInitOnly,
+                converter);
         }
 
-        /// <summary>
-        /// Get all public static fields of a class.
-        /// </summary>
-        /// <param name="type"> The class <see cref="T:System.Type"/> from which the field data will be taken. </param>
-        /// <param name="checkForAssignableType"> Will types inherited from <typeparamref name="T"/> be returned? </param>
-        /// <typeparam name="T"></typeparam>
-        private static IEnumerable<T> GetPublicStaticFields<T>(this Type type, bool checkForAssignableType,
-            BindingFlags bindingFlags, Func<FieldInfo, bool> predicate, Func<FieldInfo, T> selector)
+        private static IEnumerable<TResult> GetPublicStaticFields<TField, TResult>(
+            this Type type,
+            bool checkForAssignableType,
+            BindingFlags bindingFlags,
+            Func<FieldInfo, bool> predicate,
+            Func<FieldInfo, TResult> selector)
         {
             return type.GetFields(bindingFlags)
-                .Where((field) => predicate(field) && (checkForAssignableType
-                    ? typeof(T).IsAssignableFrom(field.FieldType)
-                    : field.FieldType == typeof(T))).Select(selector);
+                .Where(field => predicate(field) && (checkForAssignableType
+                    ? typeof(TField).IsAssignableFrom(field.FieldType)
+                    : field.FieldType == typeof(TField)))
+                .Select(selector);
         }
     }
 }
